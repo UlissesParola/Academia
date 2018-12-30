@@ -14,7 +14,8 @@ namespace Academia
 {
 	public partial class MainForm : Form
 	{
-		private ControleVisitante controleVisitante;
+		private ControleVisitante _controleVisitante;
+		private Visitante _visitanteAtual;
 
 		public MainForm()
 		{
@@ -23,12 +24,12 @@ namespace Academia
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			if (controleVisitante == null)
+			if (_controleVisitante == null)
 			{
-				controleVisitante = new ControleVisitante();
+				_controleVisitante = new ControleVisitante();
 			}
 
-			dgvVisitantes.DataSource = controleVisitante.Visitantes;
+			dgvVisitantes.DataSource = _controleVisitante.Visitantes;
 		}
 
 
@@ -71,11 +72,11 @@ namespace Academia
 		{
 			try
 			{
-				controleVisitante.AdicionarNovoVisitante(txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value,txtEmailVisitante.Text,
+				_controleVisitante.AdicionarNovoVisitante(txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value,txtEmailVisitante.Text,
 				txtTelefoneVisitante1.Text, txtTelefoneVisitante2.Text, rtbInformacoesVisitante.Text);
-
-				AtualizarDataGridVisitantes();
 				LimparFormularioVisitante();
+				AtualizarDataGridVisitantes();
+				
 			}
 			catch (ArgumentException exception)
 			{
@@ -87,17 +88,31 @@ namespace Academia
 
 		private void AtualizarDataGridVisitantes()
 		{
-			dgvVisitantes.DataSource = controleVisitante.Visitantes;
+			dgvVisitantes.DataSource = _controleVisitante.Visitantes;
 
 			var index = dgvVisitantes.Rows.Count - 1;
 
+			dgvVisitantes.ClearSelection();
 			dgvVisitantes.FirstDisplayedScrollingRowIndex = index;
-			dgvVisitantes.Rows[index].Selected = true;
+			dgvVisitantes.CurrentCell = dgvVisitantes.Rows[index].Cells[1];
+
+			_visitanteAtual = _controleVisitante.Visitantes[index];
+
+			PreencheFormularioVisitante(index);
 		}
 
-		private void btnCancelarNovoVisitante_Click(object sender, EventArgs e)
+		private void btnDeletarVisitante_Click(object sender, EventArgs e)
 		{
-			LimparFormularioVisitante();
+			try
+			{
+				_controleVisitante.DeletarVisitante(_visitanteAtual);
+				LimparFormularioVisitante();
+				AtualizarDataGridVisitantes();
+			}
+			catch (ArgumentNullException exception)
+			{
+				MessageBox.Show(exception.Message, "Nenhum Visitante Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		private void LimparFormularioVisitante()
@@ -109,6 +124,8 @@ namespace Academia
 			txtTelefoneVisitante2.Text = "";
 			dtpProximoContatoVisitante.Value = DateTime.Today.AddMonths(1);
 			rtbInformacoesVisitante.Text = "";
+
+			_visitanteAtual = null;
 		}
 
 		private void btnNovoVisitante_Click(object sender, EventArgs e)
@@ -119,29 +136,21 @@ namespace Academia
 
 		private void DataGridVisitantes_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
+			PreencheFormularioVisitante(e.RowIndex);
+		}
 
-			//int rowIndex = e.RowIndex;
-			Visitante visitante = controleVisitante.Visitantes[e.RowIndex];
+		private void PreencheFormularioVisitante(int index)
+		{
+			_visitanteAtual = _controleVisitante.Visitantes[index];
 
-			txtNomeVisitante.Text = visitante.Nome;
-			dtpVisitante.Value = visitante.DataVisita;
-			dtpProximoContatoVisitante.Value = visitante.ProximoContato;
-			rtbInformacoesVisitante.Text = "";
+			txtNomeVisitante.Text = _visitanteAtual.Nome;
+			dtpVisitante.Value = _visitanteAtual.DataVisita;
+			dtpProximoContatoVisitante.Value = _visitanteAtual.ProximoContato;
+			rtbInformacoesVisitante.Text = _visitanteAtual.Informacoes;
 
-			if (visitante.Contato == null)
-			{
-				txtEmailVisitante.Text = "";
-				txtTelefoneVisitante1.Text = "";
-				txtTelefoneVisitante2.Text = "";
-			}
-			else
-			{
-				txtEmailVisitante.Text = visitante.Contato.Email;
-				txtTelefoneVisitante1.Text = visitante.Contato.Telefone1;
-				txtTelefoneVisitante2.Text = visitante.Contato.Telefone2;
-			}
-				
-		
+			txtEmailVisitante.Text = _visitanteAtual.Contato.Email;
+			txtTelefoneVisitante1.Text = _visitanteAtual.Contato.Telefone1;
+			txtTelefoneVisitante2.Text = _visitanteAtual.Contato.Telefone2;
 		}
 	}
 }

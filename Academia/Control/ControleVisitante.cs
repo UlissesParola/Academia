@@ -37,7 +37,7 @@ namespace Academia.Control
 				{
 					context.Visitantes.Add(novoVisitante);
 					context.SaveChanges();
-					Visitantes = context.Visitantes.ToList();
+					AtualizarVisitantes();
 				}
 			}
 			else
@@ -47,14 +47,23 @@ namespace Academia.Control
 			
 		}
 
-		public void DeletarVisitante(int Id)
+		public void DeletarVisitante(Visitante visitante)
 		{
 			using (AcademiaDbContext context = new AcademiaDbContext())
 			{
-				Visitante visitante = Visitantes[Id];
-				context.Visitantes.Remove(visitante);
-				context.SaveChanges();
-				Visitantes = context.Visitantes.ToList();
+				if (visitante != null)
+				{
+					Visitante visitanteParaSerDeletado = context.Visitantes.Include("Contato").Where(v => v.Id == visitante.Id).First();
+					context.Contatos.Remove(visitanteParaSerDeletado.Contato);
+					context.Visitantes.Remove(visitanteParaSerDeletado);
+					context.SaveChanges();
+					AtualizarVisitantes();
+				}
+				else
+				{
+					throw new ArgumentNullException("Nenhum visitante selecionado.");
+				}
+
 			}
 		}
 
@@ -62,7 +71,7 @@ namespace Academia.Control
 		{
 			using (AcademiaDbContext context = new AcademiaDbContext())
 			{
-				Visitantes = context.Visitantes.Include("Contato").ToList();
+				Visitantes = context.Visitantes.Include("Contato").OrderBy(v => v.DataVisita).ToList();
 			}
 		}
 	}

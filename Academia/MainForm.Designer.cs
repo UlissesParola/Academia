@@ -45,6 +45,11 @@
 			this.pnlAdicionarVisitante = new System.Windows.Forms.Panel();
 			this.btnNovoVisitante = new System.Windows.Forms.Button();
 			this.dgvVisitantes = new System.Windows.Forms.DataGridView();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataVisitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.contatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.visitanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dtpProximoContatoVisitante = new System.Windows.Forms.DateTimePicker();
 			this.label10 = new System.Windows.Forms.Label();
 			this.rtbInformacoesVisitante = new System.Windows.Forms.RichTextBox();
@@ -68,11 +73,6 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.pnlFinanceiro = new System.Windows.Forms.Panel();
 			this.pnlAlunos = new System.Windows.Forms.Panel();
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataVisitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.contatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.visitanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.MainTablePanel.SuspendLayout();
 			this.SidebarTablePanel.SuspendLayout();
 			this.pnlLogo.SuspendLayout();
@@ -82,8 +82,8 @@
 			this.pnlVisitantes.SuspendLayout();
 			this.pnlAdicionarVisitante.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVisitantes)).BeginInit();
-			this.pnlHome.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).BeginInit();
+			this.pnlHome.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// MainTablePanel
@@ -311,8 +311,42 @@
 			this.dgvVisitantes.Name = "dgvVisitantes";
 			this.dgvVisitantes.RowTemplate.Height = 24;
 			this.dgvVisitantes.Size = new System.Drawing.Size(550, 444);
-			this.dgvVisitantes.TabIndex = 22;
+			this.dgvVisitantes.TabIndex = 19;
 			this.dgvVisitantes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridVisitantes_RowEnter);
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.Visible = false;
+			// 
+			// nomeDataGridViewTextBoxColumn
+			// 
+			this.nomeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+			this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+			this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+			// 
+			// dataVisitaDataGridViewTextBoxColumn
+			// 
+			this.dataVisitaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+			this.dataVisitaDataGridViewTextBoxColumn.DataPropertyName = "DataVisita";
+			this.dataVisitaDataGridViewTextBoxColumn.HeaderText = "DataVisita";
+			this.dataVisitaDataGridViewTextBoxColumn.Name = "dataVisitaDataGridViewTextBoxColumn";
+			this.dataVisitaDataGridViewTextBoxColumn.Width = 134;
+			// 
+			// contatoDataGridViewTextBoxColumn
+			// 
+			this.contatoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+			this.contatoDataGridViewTextBoxColumn.DataPropertyName = "Contato";
+			this.contatoDataGridViewTextBoxColumn.HeaderText = "Contato";
+			this.contatoDataGridViewTextBoxColumn.Name = "contatoDataGridViewTextBoxColumn";
+			this.contatoDataGridViewTextBoxColumn.Visible = false;
+			// 
+			// visitanteBindingSource
+			// 
+			this.visitanteBindingSource.DataSource = typeof(Academia.Model.Visitante);
 			// 
 			// dtpProximoContatoVisitante
 			// 
@@ -321,7 +355,7 @@
 			this.dtpProximoContatoVisitante.Location = new System.Drawing.Point(820, 358);
 			this.dtpProximoContatoVisitante.Name = "dtpProximoContatoVisitante";
 			this.dtpProximoContatoVisitante.Size = new System.Drawing.Size(147, 30);
-			this.dtpProximoContatoVisitante.TabIndex = 21;
+			this.dtpProximoContatoVisitante.TabIndex = 15;
 			this.dtpProximoContatoVisitante.Value = new System.DateTime(2018, 12, 23, 12, 31, 55, 0);
 			// 
 			// label10
@@ -341,7 +375,7 @@
 			this.rtbInformacoesVisitante.Location = new System.Drawing.Point(641, 450);
 			this.rtbInformacoesVisitante.Name = "rtbInformacoesVisitante";
 			this.rtbInformacoesVisitante.Size = new System.Drawing.Size(393, 127);
-			this.rtbInformacoesVisitante.TabIndex = 19;
+			this.rtbInformacoesVisitante.TabIndex = 16;
 			this.rtbInformacoesVisitante.Text = "";
 			// 
 			// label9
@@ -366,9 +400,9 @@
 			this.btnCancelarNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
 			this.btnCancelarNovoVisitante.Name = "btnCancelarNovoVisitante";
 			this.btnCancelarNovoVisitante.Size = new System.Drawing.Size(60, 60);
-			this.btnCancelarNovoVisitante.TabIndex = 16;
+			this.btnCancelarNovoVisitante.TabIndex = 18;
 			this.btnCancelarNovoVisitante.UseVisualStyleBackColor = false;
-			this.btnCancelarNovoVisitante.Click += new System.EventHandler(this.btnCancelarNovoVisitante_Click);
+			this.btnCancelarNovoVisitante.Click += new System.EventHandler(this.btnDeletarVisitante_Click);
 			// 
 			// btnSalvarNovoVisitante
 			// 
@@ -382,7 +416,7 @@
 			this.btnSalvarNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
 			this.btnSalvarNovoVisitante.Name = "btnSalvarNovoVisitante";
 			this.btnSalvarNovoVisitante.Size = new System.Drawing.Size(60, 60);
-			this.btnSalvarNovoVisitante.TabIndex = 15;
+			this.btnSalvarNovoVisitante.TabIndex = 17;
 			this.btnSalvarNovoVisitante.UseVisualStyleBackColor = false;
 			this.btnSalvarNovoVisitante.Click += new System.EventHandler(this.btnSalvarNovoVisitante_Click);
 			// 
@@ -553,41 +587,6 @@
 			this.pnlAlunos.Size = new System.Drawing.Size(1073, 673);
 			this.pnlAlunos.TabIndex = 1;
 			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// nomeDataGridViewTextBoxColumn
-			// 
-			this.nomeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-			this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-			this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-			// 
-			// dataVisitaDataGridViewTextBoxColumn
-			// 
-			this.dataVisitaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			this.dataVisitaDataGridViewTextBoxColumn.DataPropertyName = "DataVisita";
-			this.dataVisitaDataGridViewTextBoxColumn.HeaderText = "DataVisita";
-			this.dataVisitaDataGridViewTextBoxColumn.Name = "dataVisitaDataGridViewTextBoxColumn";
-			this.dataVisitaDataGridViewTextBoxColumn.Width = 134;
-			// 
-			// contatoDataGridViewTextBoxColumn
-			// 
-			this.contatoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			this.contatoDataGridViewTextBoxColumn.DataPropertyName = "Contato";
-			this.contatoDataGridViewTextBoxColumn.HeaderText = "Contato";
-			this.contatoDataGridViewTextBoxColumn.Name = "contatoDataGridViewTextBoxColumn";
-			this.contatoDataGridViewTextBoxColumn.Visible = false;
-			this.contatoDataGridViewTextBoxColumn.Width = 86;
-			// 
-			// visitanteBindingSource
-			// 
-			this.visitanteBindingSource.DataSource = typeof(Academia.Model.Visitante);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -612,9 +611,9 @@
 			this.pnlAdicionarVisitante.ResumeLayout(false);
 			this.pnlAdicionarVisitante.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVisitantes)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).EndInit();
 			this.pnlHome.ResumeLayout(false);
 			this.pnlHome.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
