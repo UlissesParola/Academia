@@ -13,7 +13,7 @@ namespace Academia.Control
 
 		public ControleVisitante()
 		{
-			AtualizarVisitantes();
+			AtualizarListaVisitantes();
 		}
 
 		public void AdicionarNovoVisitante(String nome, DateTime dataVisita, DateTime proximoContato, String email, String telefone1, String telefone2, String informacoes)
@@ -37,7 +37,7 @@ namespace Academia.Control
 				{
 					context.Visitantes.Add(novoVisitante);
 					context.SaveChanges();
-					AtualizarVisitantes();
+					AtualizarListaVisitantes();
 				}
 			}
 			else
@@ -45,6 +45,31 @@ namespace Academia.Control
 				throw (new ArgumentException("Nome ou Contato em branco"));
 			}
 			
+		}
+
+		public void AtualizarVisitante(int Id, String nome, DateTime dataVisita, DateTime proximoContato, String email, String telefone1, String telefone2, String informacoes)
+		{
+			if (!String.IsNullOrEmpty(nome) && (!String.IsNullOrEmpty(email) ||
+				!String.IsNullOrEmpty(telefone1) || !String.IsNullOrEmpty(telefone2)))
+			{
+				using (AcademiaDbContext context = new AcademiaDbContext())
+				{
+					Visitante visitanteParaSerAtualizado = context.Visitantes.Include("Contato").Where(v => v.Id == Id).First();
+					visitanteParaSerAtualizado.Nome = nome;
+					visitanteParaSerAtualizado.DataVisita = dataVisita;
+					visitanteParaSerAtualizado.ProximoContato = proximoContato;
+					visitanteParaSerAtualizado.Contato.Email = email;
+					visitanteParaSerAtualizado.Contato.Telefone1 = telefone1;
+					visitanteParaSerAtualizado.Contato.Telefone2 = telefone2;
+					visitanteParaSerAtualizado.Informacoes = informacoes;
+					context.SaveChanges();
+					AtualizarListaVisitantes();
+				}
+			}
+			else
+			{
+				throw (new ArgumentException("Nome ou Contato em branco"));
+			}
 		}
 
 		public void DeletarVisitante(Visitante visitante)
@@ -57,22 +82,24 @@ namespace Academia.Control
 					context.Contatos.Remove(visitanteParaSerDeletado.Contato);
 					context.Visitantes.Remove(visitanteParaSerDeletado);
 					context.SaveChanges();
-					AtualizarVisitantes();
+					AtualizarListaVisitantes();
 				}
 				else
 				{
 					throw new ArgumentNullException("Nenhum visitante selecionado.");
 				}
-
 			}
 		}
 
-		public void AtualizarVisitantes()
+		public void AtualizarListaVisitantes()
 		{
 			using (AcademiaDbContext context = new AcademiaDbContext())
 			{
 				Visitantes = context.Visitantes.Include("Contato").OrderBy(v => v.DataVisita).ToList();
 			}
 		}
+
+		
+		
 	}
 }

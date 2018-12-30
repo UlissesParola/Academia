@@ -55,6 +55,7 @@ namespace Academia
 			pnlBotaoSelecionado.Height = btnVisitantes.Height;
 			pnlBotaoSelecionado.Top = btnVisitantes.Top;
 			pnlVisitantes.BringToFront();
+			dgvVisitantes.Focus();
 		}
 
 		private void btnFinanceiro_Click(object sender, EventArgs e)
@@ -68,53 +69,79 @@ namespace Academia
 
 		//Visitantes
 
-		private void btnSalvarNovoVisitante_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Salva novo Visitante ou atualiza visitante existente no banco de dados
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btnSalvarVisitante_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				_controleVisitante.AdicionarNovoVisitante(txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value,txtEmailVisitante.Text,
-				txtTelefoneVisitante1.Text, txtTelefoneVisitante2.Text, rtbInformacoesVisitante.Text);
-				LimparFormularioVisitante();
-				AtualizarDataGridVisitantes();
-				
+				if (_visitanteAtual == null)
+				{
+					_controleVisitante.AdicionarNovoVisitante(txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value, txtEmailVisitante.Text,
+					txtTelefoneVisitante1.Text, txtTelefoneVisitante2.Text, rtbInformacoesVisitante.Text);
+					AtualizarDataGridVisitantes();
+					SelecionarUltimoVisitante();
+
+				}
+				else
+				{
+					_controleVisitante.AtualizarVisitante(_visitanteAtual.Id, txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value, txtEmailVisitante.Text,
+						txtTelefoneVisitante1.Text, txtTelefoneVisitante2.Text, rtbInformacoesVisitante.Text);
+					AtualizarDataGridVisitantes();
+				}
 			}
 			catch (ArgumentException exception)
 			{
 				MessageBox.Show(exception.Message, "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
-
+			
 		}
 
-
+		/// <summary>
+		/// Atualiza o DataGridView de Visitantes com os dados salvos no banco de dados. 
+		/// </summary>
 		private void AtualizarDataGridVisitantes()
 		{
 			dgvVisitantes.DataSource = _controleVisitante.Visitantes;
-
-			var index = dgvVisitantes.Rows.Count - 1;
-
-			dgvVisitantes.ClearSelection();
-			dgvVisitantes.FirstDisplayedScrollingRowIndex = index;
-			dgvVisitantes.CurrentCell = dgvVisitantes.Rows[index].Cells[1];
-
-			_visitanteAtual = _controleVisitante.Visitantes[index];
-
-			PreencheFormularioVisitante(index);
 		}
 
+
+		/// <summary>
+		/// Função para deletar o Visitante selecionado do banco de dados.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btnDeletarVisitante_Click(object sender, EventArgs e)
 		{
-			try
+			if (_visitanteAtual != null)
 			{
-				_controleVisitante.DeletarVisitante(_visitanteAtual);
-				LimparFormularioVisitante();
-				AtualizarDataGridVisitantes();
+				String pergunta = "Tem certeza de que quer deletar " + _visitanteAtual.Nome + "? Ele não poderá ser recuperado depois.";
+
+				DialogResult dialogResult = MessageBox.Show(pergunta, "Deletar Visitante", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+				if (dialogResult == DialogResult.Yes)
+				{
+					try
+					{
+						_controleVisitante.DeletarVisitante(_visitanteAtual);
+						LimparFormularioVisitante();
+						AtualizarDataGridVisitantes();
+					}
+					catch (ArgumentNullException exception)
+					{
+						MessageBox.Show(exception.Message, "Nenhum Visitante Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
 			}
-			catch (ArgumentNullException exception)
-			{
-				MessageBox.Show(exception.Message, "Nenhum Visitante Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+			
 		}
 
+		/// <summary>
+		/// Limpa o formulário de visitante
+		/// </summary>
 		private void LimparFormularioVisitante()
 		{
 			txtNomeVisitante.Text = "";
@@ -128,17 +155,32 @@ namespace Academia
 			_visitanteAtual = null;
 		}
 
+		/// <summary>
+		/// Prepara o formulário para a inclusão de novo visitante
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btnNovoVisitante_Click(object sender, EventArgs e)
 		{
+			_visitanteAtual = null;
 			LimparFormularioVisitante();
 			txtNomeVisitante.Focus();
 		}
 
+		/// <summary>
+		/// Preenche o formulário de visitantes com os dados do item selecionado.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void DataGridVisitantes_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
 			PreencheFormularioVisitante(e.RowIndex);
 		}
 
+		/// <summary>
+		/// Preenche o formulário com os dados do visitante passado como parâmetro.
+		/// </summary>
+		/// <param name="index"></param>
 		private void PreencheFormularioVisitante(int index)
 		{
 			_visitanteAtual = _controleVisitante.Visitantes[index];
@@ -151,6 +193,22 @@ namespace Academia
 			txtEmailVisitante.Text = _visitanteAtual.Contato.Email;
 			txtTelefoneVisitante1.Text = _visitanteAtual.Contato.Telefone1;
 			txtTelefoneVisitante2.Text = _visitanteAtual.Contato.Telefone2;
+		}
+
+		/// <summary>
+		/// Seleciona o último visitante do DataGridView
+		/// </summary>
+		private void SelecionarUltimoVisitante()
+		{
+			var index = dgvVisitantes.Rows.Count - 1;
+
+			dgvVisitantes.ClearSelection();
+			dgvVisitantes.FirstDisplayedScrollingRowIndex = index;
+			dgvVisitantes.CurrentCell = dgvVisitantes.Rows[index].Cells[1];
+
+			_visitanteAtual = _controleVisitante.Visitantes[index];
+
+			PreencheFormularioVisitante(index);
 		}
 	}
 }
