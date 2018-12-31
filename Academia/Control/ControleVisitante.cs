@@ -121,5 +121,20 @@ namespace Academia.Control
 			}
 
 		}	
+
+		public void OrdenarVisitantesPorNome()
+		{
+			Visitantes = Visitantes.OrderBy(v => v.Nome).ToList();
+		}
+
+		public void OrdenarVisitantesPorDataDeVisita()
+		{ 
+			Visitantes = Visitantes.OrderBy(v => v.DataVisita).ToList();
+		}
+
+		public void OrdenarVisitantesPorDataProximoContato()
+		{
+			Visitantes = Visitantes.OrderBy(v => v.ProximoContato).ToList();
+		}
 	}
 }

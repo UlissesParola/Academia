@@ -43,13 +43,10 @@
 			this.pnlMain = new System.Windows.Forms.Panel();
 			this.pnlVisitantes = new System.Windows.Forms.Panel();
 			this.pnlAdicionarVisitante = new System.Windows.Forms.Panel();
+			this.txtPesquisarVisitantePorNome = new System.Windows.Forms.TextBox();
+			this.label11 = new System.Windows.Forms.Label();
 			this.btnNovoVisitante = new System.Windows.Forms.Button();
 			this.dgvVisitantes = new System.Windows.Forms.DataGridView();
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataVisitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ProximoContato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.contatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.visitanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dtpProximoContatoVisitante = new System.Windows.Forms.DateTimePicker();
 			this.label10 = new System.Windows.Forms.Label();
@@ -74,8 +71,11 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.pnlFinanceiro = new System.Windows.Forms.Panel();
 			this.pnlAlunos = new System.Windows.Forms.Panel();
-			this.label11 = new System.Windows.Forms.Label();
-			this.txtPesquisarVisitantePorNome = new System.Windows.Forms.TextBox();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.DataVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ProximoContato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.contatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.MainTablePanel.SuspendLayout();
 			this.SidebarTablePanel.SuspendLayout();
 			this.pnlLogo.SuspendLayout();
@@ -284,6 +284,23 @@
 			this.pnlAdicionarVisitante.Size = new System.Drawing.Size(1073, 673);
 			this.pnlAdicionarVisitante.TabIndex = 1;
 			// 
+			// txtPesquisarVisitantePorNome
+			// 
+			this.txtPesquisarVisitantePorNome.Location = new System.Drawing.Point(141, 133);
+			this.txtPesquisarVisitantePorNome.Name = "txtPesquisarVisitantePorNome";
+			this.txtPesquisarVisitantePorNome.Size = new System.Drawing.Size(445, 30);
+			this.txtPesquisarVisitantePorNome.TabIndex = 25;
+			this.txtPesquisarVisitantePorNome.TextChanged += new System.EventHandler(this.txtPesquisarVisitantePorNome_TextChanged);
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(36, 137);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(99, 22);
+			this.label11.TabIndex = 24;
+			this.label11.Text = "Pesquisar:";
+			// 
 			// btnNovoVisitante
 			// 
 			this.btnNovoVisitante.BackColor = System.Drawing.Color.White;
@@ -312,8 +329,8 @@
 			this.dgvVisitantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvVisitantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.nomeDataGridViewTextBoxColumn,
-            this.dataVisitaDataGridViewTextBoxColumn,
+            this.Nome,
+            this.DataVisita,
             this.ProximoContato,
             this.contatoDataGridViewTextBoxColumn});
 			this.dgvVisitantes.DataSource = this.visitanteBindingSource;
@@ -324,50 +341,8 @@
 			this.dgvVisitantes.RowTemplate.Height = 24;
 			this.dgvVisitantes.Size = new System.Drawing.Size(550, 395);
 			this.dgvVisitantes.TabIndex = 19;
+			this.dgvVisitantes.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvVisitantes_ColumnHeaderMouseClick);
 			this.dgvVisitantes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridVisitantes_RowEnter);
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			this.idDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// nomeDataGridViewTextBoxColumn
-			// 
-			this.nomeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-			this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-			this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-			this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// dataVisitaDataGridViewTextBoxColumn
-			// 
-			this.dataVisitaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			this.dataVisitaDataGridViewTextBoxColumn.DataPropertyName = "DataVisita";
-			this.dataVisitaDataGridViewTextBoxColumn.HeaderText = "Data Visita";
-			this.dataVisitaDataGridViewTextBoxColumn.Name = "dataVisitaDataGridViewTextBoxColumn";
-			this.dataVisitaDataGridViewTextBoxColumn.ReadOnly = true;
-			this.dataVisitaDataGridViewTextBoxColumn.Width = 127;
-			// 
-			// ProximoContato
-			// 
-			this.ProximoContato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-			this.ProximoContato.DataPropertyName = "ProximoContato";
-			this.ProximoContato.HeaderText = "Proximo Contato";
-			this.ProximoContato.Name = "ProximoContato";
-			this.ProximoContato.ReadOnly = true;
-			this.ProximoContato.Width = 24;
-			// 
-			// contatoDataGridViewTextBoxColumn
-			// 
-			this.contatoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			this.contatoDataGridViewTextBoxColumn.DataPropertyName = "Contato";
-			this.contatoDataGridViewTextBoxColumn.HeaderText = "Contato";
-			this.contatoDataGridViewTextBoxColumn.Name = "contatoDataGridViewTextBoxColumn";
-			this.contatoDataGridViewTextBoxColumn.ReadOnly = true;
-			this.contatoDataGridViewTextBoxColumn.Visible = false;
 			// 
 			// visitanteBindingSource
 			// 
@@ -612,22 +587,52 @@
 			this.pnlAlunos.Size = new System.Drawing.Size(1073, 673);
 			this.pnlAlunos.TabIndex = 1;
 			// 
-			// label11
+			// idDataGridViewTextBoxColumn
 			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(36, 137);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(99, 22);
-			this.label11.TabIndex = 24;
-			this.label11.Text = "Pesquisar:";
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			this.idDataGridViewTextBoxColumn.Visible = false;
 			// 
-			// txtPesquisarVisitantePorNome
+			// Nome
 			// 
-			this.txtPesquisarVisitantePorNome.Location = new System.Drawing.Point(141, 133);
-			this.txtPesquisarVisitantePorNome.Name = "txtPesquisarVisitantePorNome";
-			this.txtPesquisarVisitantePorNome.Size = new System.Drawing.Size(445, 30);
-			this.txtPesquisarVisitantePorNome.TabIndex = 25;
-			this.txtPesquisarVisitantePorNome.TextChanged += new System.EventHandler(this.txtPesquisarVisitantePorNome_TextChanged);
+			this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.Nome.DataPropertyName = "Nome";
+			this.Nome.HeaderText = "Nome";
+			this.Nome.Name = "Nome";
+			this.Nome.ReadOnly = true;
+			this.Nome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+			// 
+			// DataVisita
+			// 
+			this.DataVisita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+			this.DataVisita.DataPropertyName = "DataVisita";
+			this.DataVisita.HeaderText = "Data Visita";
+			this.DataVisita.Name = "DataVisita";
+			this.DataVisita.ReadOnly = true;
+			this.DataVisita.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+			this.DataVisita.Width = 139;
+			// 
+			// ProximoContato
+			// 
+			this.ProximoContato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+			this.ProximoContato.DataPropertyName = "ProximoContato";
+			this.ProximoContato.HeaderText = "Proximo Contato";
+			this.ProximoContato.Name = "ProximoContato";
+			this.ProximoContato.ReadOnly = true;
+			this.ProximoContato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+			this.ProximoContato.Width = 24;
+			// 
+			// contatoDataGridViewTextBoxColumn
+			// 
+			this.contatoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+			this.contatoDataGridViewTextBoxColumn.DataPropertyName = "Contato";
+			this.contatoDataGridViewTextBoxColumn.HeaderText = "Contato";
+			this.contatoDataGridViewTextBoxColumn.Name = "contatoDataGridViewTextBoxColumn";
+			this.contatoDataGridViewTextBoxColumn.ReadOnly = true;
+			this.contatoDataGridViewTextBoxColumn.Visible = false;
+			this.contatoDataGridViewTextBoxColumn.Width = 117;
 			// 
 			// MainForm
 			// 
@@ -701,12 +706,12 @@
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.DataGridView dgvVisitantes;
 		private System.Windows.Forms.Button btnNovoVisitante;
-		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataVisitaDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn ProximoContato;
-		private System.Windows.Forms.DataGridViewTextBoxColumn contatoDataGridViewTextBoxColumn;
 		private System.Windows.Forms.TextBox txtPesquisarVisitantePorNome;
 		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+		private System.Windows.Forms.DataGridViewTextBoxColumn DataVisita;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ProximoContato;
+		private System.Windows.Forms.DataGridViewTextBoxColumn contatoDataGridViewTextBoxColumn;
 	}
 }

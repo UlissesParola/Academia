@@ -239,5 +239,27 @@ namespace Academia
 			_controleVisitante.PesquisaVisitantePorNome(txtPesquisarVisitantePorNome.Text);
 			AtualizarDataGridVisitantes();
 		}
+
+		private void dgvVisitantes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			String coluna = dgvVisitantes.Columns[e.ColumnIndex].Name;
+			switch (coluna)
+			{
+				case "Nome":
+					_controleVisitante.OrdenarVisitantesPorNome();
+					break;
+				case "DataVisita":
+					_controleVisitante.OrdenarVisitantesPorDataDeVisita();
+						break;
+				case "ProximoContato":
+					_controleVisitante.OrdenarVisitantesPorDataProximoContato();
+					break;
+				default:
+					_controleVisitante.OrdenarVisitantesPorDataProximoContato();
+					break;
+			}
+
+			AtualizarDataGridVisitantes();
+		}
 	}
 }
