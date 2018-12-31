@@ -45,6 +45,12 @@
 			this.pnlAdicionarVisitante = new System.Windows.Forms.Panel();
 			this.btnNovoVisitante = new System.Windows.Forms.Button();
 			this.dgvVisitantes = new System.Windows.Forms.DataGridView();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataVisitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ProximoContato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.contatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.visitanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dtpProximoContatoVisitante = new System.Windows.Forms.DateTimePicker();
 			this.label10 = new System.Windows.Forms.Label();
 			this.rtbInformacoesVisitante = new System.Windows.Forms.RichTextBox();
@@ -68,12 +74,8 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.pnlFinanceiro = new System.Windows.Forms.Panel();
 			this.pnlAlunos = new System.Windows.Forms.Panel();
-			this.visitanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataVisitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ProximoContato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.contatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.label11 = new System.Windows.Forms.Label();
+			this.txtPesquisarVisitantePorNome = new System.Windows.Forms.TextBox();
 			this.MainTablePanel.SuspendLayout();
 			this.SidebarTablePanel.SuspendLayout();
 			this.pnlLogo.SuspendLayout();
@@ -83,8 +85,8 @@
 			this.pnlVisitantes.SuspendLayout();
 			this.pnlAdicionarVisitante.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVisitantes)).BeginInit();
-			this.pnlHome.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).BeginInit();
+			this.pnlHome.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// MainTablePanel
@@ -254,6 +256,8 @@
 			// pnlAdicionarVisitante
 			// 
 			this.pnlAdicionarVisitante.BackColor = System.Drawing.Color.White;
+			this.pnlAdicionarVisitante.Controls.Add(this.txtPesquisarVisitantePorNome);
+			this.pnlAdicionarVisitante.Controls.Add(this.label11);
 			this.pnlAdicionarVisitante.Controls.Add(this.btnNovoVisitante);
 			this.pnlAdicionarVisitante.Controls.Add(this.dgvVisitantes);
 			this.pnlAdicionarVisitante.Controls.Add(this.dtpProximoContatoVisitante);
@@ -313,14 +317,61 @@
             this.ProximoContato,
             this.contatoDataGridViewTextBoxColumn});
 			this.dgvVisitantes.DataSource = this.visitanteBindingSource;
-			this.dgvVisitantes.Location = new System.Drawing.Point(36, 133);
+			this.dgvVisitantes.Location = new System.Drawing.Point(36, 182);
 			this.dgvVisitantes.MultiSelect = false;
 			this.dgvVisitantes.Name = "dgvVisitantes";
 			this.dgvVisitantes.ReadOnly = true;
 			this.dgvVisitantes.RowTemplate.Height = 24;
-			this.dgvVisitantes.Size = new System.Drawing.Size(550, 444);
+			this.dgvVisitantes.Size = new System.Drawing.Size(550, 395);
 			this.dgvVisitantes.TabIndex = 19;
 			this.dgvVisitantes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridVisitantes_RowEnter);
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			this.idDataGridViewTextBoxColumn.Visible = false;
+			// 
+			// nomeDataGridViewTextBoxColumn
+			// 
+			this.nomeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+			this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+			this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+			this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// dataVisitaDataGridViewTextBoxColumn
+			// 
+			this.dataVisitaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+			this.dataVisitaDataGridViewTextBoxColumn.DataPropertyName = "DataVisita";
+			this.dataVisitaDataGridViewTextBoxColumn.HeaderText = "Data Visita";
+			this.dataVisitaDataGridViewTextBoxColumn.Name = "dataVisitaDataGridViewTextBoxColumn";
+			this.dataVisitaDataGridViewTextBoxColumn.ReadOnly = true;
+			this.dataVisitaDataGridViewTextBoxColumn.Width = 127;
+			// 
+			// ProximoContato
+			// 
+			this.ProximoContato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+			this.ProximoContato.DataPropertyName = "ProximoContato";
+			this.ProximoContato.HeaderText = "Proximo Contato";
+			this.ProximoContato.Name = "ProximoContato";
+			this.ProximoContato.ReadOnly = true;
+			this.ProximoContato.Width = 24;
+			// 
+			// contatoDataGridViewTextBoxColumn
+			// 
+			this.contatoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+			this.contatoDataGridViewTextBoxColumn.DataPropertyName = "Contato";
+			this.contatoDataGridViewTextBoxColumn.HeaderText = "Contato";
+			this.contatoDataGridViewTextBoxColumn.Name = "contatoDataGridViewTextBoxColumn";
+			this.contatoDataGridViewTextBoxColumn.ReadOnly = true;
+			this.contatoDataGridViewTextBoxColumn.Visible = false;
+			// 
+			// visitanteBindingSource
+			// 
+			this.visitanteBindingSource.DataSource = typeof(Academia.Model.Visitante);
 			// 
 			// dtpProximoContatoVisitante
 			// 
@@ -561,53 +612,22 @@
 			this.pnlAlunos.Size = new System.Drawing.Size(1073, 673);
 			this.pnlAlunos.TabIndex = 1;
 			// 
-			// visitanteBindingSource
+			// label11
 			// 
-			this.visitanteBindingSource.DataSource = typeof(Academia.Model.Visitante);
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(36, 137);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(99, 22);
+			this.label11.TabIndex = 24;
+			this.label11.Text = "Pesquisar:";
 			// 
-			// idDataGridViewTextBoxColumn
+			// txtPesquisarVisitantePorNome
 			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			this.idDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// nomeDataGridViewTextBoxColumn
-			// 
-			this.nomeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-			this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-			this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-			this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// dataVisitaDataGridViewTextBoxColumn
-			// 
-			this.dataVisitaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			this.dataVisitaDataGridViewTextBoxColumn.DataPropertyName = "DataVisita";
-			this.dataVisitaDataGridViewTextBoxColumn.HeaderText = "Data Visita";
-			this.dataVisitaDataGridViewTextBoxColumn.Name = "dataVisitaDataGridViewTextBoxColumn";
-			this.dataVisitaDataGridViewTextBoxColumn.ReadOnly = true;
-			this.dataVisitaDataGridViewTextBoxColumn.Width = 139;
-			// 
-			// ProximoContato
-			// 
-			this.ProximoContato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-			this.ProximoContato.DataPropertyName = "ProximoContato";
-			this.ProximoContato.HeaderText = "Proximo Contato";
-			this.ProximoContato.Name = "ProximoContato";
-			this.ProximoContato.ReadOnly = true;
-			this.ProximoContato.Width = 24;
-			// 
-			// contatoDataGridViewTextBoxColumn
-			// 
-			this.contatoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			this.contatoDataGridViewTextBoxColumn.DataPropertyName = "Contato";
-			this.contatoDataGridViewTextBoxColumn.HeaderText = "Contato";
-			this.contatoDataGridViewTextBoxColumn.Name = "contatoDataGridViewTextBoxColumn";
-			this.contatoDataGridViewTextBoxColumn.ReadOnly = true;
-			this.contatoDataGridViewTextBoxColumn.Visible = false;
-			this.contatoDataGridViewTextBoxColumn.Width = 117;
+			this.txtPesquisarVisitantePorNome.Location = new System.Drawing.Point(141, 133);
+			this.txtPesquisarVisitantePorNome.Name = "txtPesquisarVisitantePorNome";
+			this.txtPesquisarVisitantePorNome.Size = new System.Drawing.Size(445, 30);
+			this.txtPesquisarVisitantePorNome.TabIndex = 25;
+			this.txtPesquisarVisitantePorNome.TextChanged += new System.EventHandler(this.txtPesquisarVisitantePorNome_TextChanged);
 			// 
 			// MainForm
 			// 
@@ -633,9 +653,9 @@
 			this.pnlAdicionarVisitante.ResumeLayout(false);
 			this.pnlAdicionarVisitante.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVisitantes)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).EndInit();
 			this.pnlHome.ResumeLayout(false);
 			this.pnlHome.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -686,5 +706,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataVisitaDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ProximoContato;
 		private System.Windows.Forms.DataGridViewTextBoxColumn contatoDataGridViewTextBoxColumn;
+		private System.Windows.Forms.TextBox txtPesquisarVisitantePorNome;
+		private System.Windows.Forms.Label label11;
 	}
 }

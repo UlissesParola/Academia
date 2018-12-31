@@ -29,7 +29,7 @@ namespace Academia
 				_controleVisitante = new ControleVisitante();
 			}
 
-			dgvVisitantes.DataSource = _controleVisitante.Visitantes;
+			AtualizarDataGridVisitantes();
 		}
 
 
@@ -152,6 +152,8 @@ namespace Academia
 			dtpProximoContatoVisitante.Value = DateTime.Today.AddMonths(1);
 			rtbInformacoesVisitante.Text = "";
 
+			txtPesquisarVisitantePorNome.Text = "";
+
 			_visitanteAtual = null;
 		}
 
@@ -209,6 +211,26 @@ namespace Academia
 			_visitanteAtual = _controleVisitante.Visitantes[index];
 
 			PreencheFormularioVisitante(index);
+		}
+
+		private void SelecionaPrimeiroVisitante()
+		{
+			if (dgvVisitantes.Rows.Count > 0)
+			{
+				dgvVisitantes.ClearSelection();
+				dgvVisitantes.FirstDisplayedScrollingRowIndex = 0;
+				dgvVisitantes.CurrentCell = dgvVisitantes.Rows[0].Cells[1];
+
+				_visitanteAtual = _controleVisitante.Visitantes[0];
+
+				PreencheFormularioVisitante(0);
+			}
+		}
+
+		private void txtPesquisarVisitantePorNome_TextChanged(object sender, EventArgs e)
+		{
+			_controleVisitante.PesquisaVisitantePorNome(txtPesquisarVisitantePorNome.Text);
+			AtualizarDataGridVisitantes();
 		}
 	}
 }

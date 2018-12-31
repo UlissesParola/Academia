@@ -99,7 +99,27 @@ namespace Academia.Control
 			}
 		}
 
-		
-		
+		public void PesquisaVisitantePorNome(string nome)
+		{
+			List<Visitante> ListaFiltrada = new List<Visitante>();
+			if (String.IsNullOrEmpty(nome.Trim()))
+			{
+				AtualizarListaVisitantes();
+			}
+			else
+			{
+
+				foreach (var visitante in Visitantes)
+				{
+					if (visitante.Nome.ToLower().Contains(nome.ToLower()))
+					{
+						ListaFiltrada.Add(visitante);
+					}
+				}
+
+				Visitantes = ListaFiltrada; ;
+			}
+
+		}	
 	}
 }
