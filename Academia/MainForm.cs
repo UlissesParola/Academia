@@ -88,9 +88,16 @@ namespace Academia
 				}
 				else
 				{
-					_controleVisitante.AtualizarVisitante(_visitanteAtual.Id, txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value, txtEmailVisitante.Text,
+					String pergunta = "Tem certeza de que quer mudar as informações de " + _visitanteAtual.Nome + "?";
+
+					DialogResult dialogResult = MessageBox.Show(pergunta, "Atualizar Visitante", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+					if (dialogResult == DialogResult.Yes)
+					{
+						_controleVisitante.AtualizarVisitante(_visitanteAtual.Id, txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value, txtEmailVisitante.Text,
 						txtTelefoneVisitante1.Text, txtTelefoneVisitante2.Text, rtbInformacoesVisitante.Text);
-					AtualizarDataGridVisitantes();
+						AtualizarDataGridVisitantes();
+					}
+
 				}
 			}
 			catch (ArgumentException exception)
@@ -120,7 +127,7 @@ namespace Academia
 			{
 				String pergunta = "Tem certeza de que quer deletar " + _visitanteAtual.Nome + "? Ele não poderá ser recuperado depois.";
 
-				DialogResult dialogResult = MessageBox.Show(pergunta, "Deletar Visitante", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+				DialogResult dialogResult = MessageBox.Show(pergunta, "Deletar Visitante", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
 				if (dialogResult == DialogResult.Yes)
 				{
