@@ -108,7 +108,6 @@ namespace Academia.Control
 			}
 			else
 			{
-
 				foreach (var visitante in Visitantes)
 				{
 					if (visitante.Nome.ToLower().Contains(nome.ToLower()))
@@ -119,7 +118,6 @@ namespace Academia.Control
 
 				Visitantes = ListaFiltrada; ;
 			}
-
 		}	
 
 		public void OrdenarVisitantesPorNome()

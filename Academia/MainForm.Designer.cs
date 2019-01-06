@@ -33,7 +33,6 @@
 			this.MainTablePanel = new System.Windows.Forms.TableLayoutPanel();
 			this.SidebarTablePanel = new System.Windows.Forms.TableLayoutPanel();
 			this.pnlLogo = new System.Windows.Forms.Panel();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.SideBarPanel = new System.Windows.Forms.Panel();
 			this.pnlBotaoSelecionado = new System.Windows.Forms.Panel();
 			this.btnFinanceiro = new System.Windows.Forms.Button();
@@ -45,15 +44,12 @@
 			this.pnlAdicionarVisitante = new System.Windows.Forms.Panel();
 			this.txtPesquisarVisitantePorNome = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
-			this.btnNovoVisitante = new System.Windows.Forms.Button();
 			this.dgvVisitantes = new System.Windows.Forms.DataGridView();
-			this.visitanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.ProximoContato = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dtpProximoContatoVisitante = new System.Windows.Forms.DateTimePicker();
 			this.label10 = new System.Windows.Forms.Label();
 			this.rtbInformacoesVisitante = new System.Windows.Forms.RichTextBox();
 			this.label9 = new System.Windows.Forms.Label();
-			this.btnCancelarNovoVisitante = new System.Windows.Forms.Button();
-			this.btnSalvarNovoVisitante = new System.Windows.Forms.Button();
 			this.txtTelefoneVisitante2 = new System.Windows.Forms.MaskedTextBox();
 			this.txtTelefoneVisitante1 = new System.Windows.Forms.MaskedTextBox();
 			this.label5 = new System.Windows.Forms.Label();
@@ -71,22 +67,28 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.pnlFinanceiro = new System.Windows.Forms.Panel();
 			this.pnlAlunos = new System.Windows.Forms.Panel();
+			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.btnNovoVisitante = new System.Windows.Forms.Button();
+			this.btnCancelarNovoVisitante = new System.Windows.Forms.Button();
+			this.btnSalvarNovoVisitante = new System.Windows.Forms.Button();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.DataVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ProximoContato = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.contatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.visitanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.visitantesUserControl1 = new Academia.VisitantesUserControl();
 			this.MainTablePanel.SuspendLayout();
 			this.SidebarTablePanel.SuspendLayout();
 			this.pnlLogo.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SideBarPanel.SuspendLayout();
 			this.pnlMain.SuspendLayout();
 			this.pnlVisitantes.SuspendLayout();
 			this.pnlAdicionarVisitante.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVisitantes)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).BeginInit();
 			this.pnlHome.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainTablePanel
@@ -133,17 +135,6 @@
 			this.pnlLogo.Name = "pnlLogo";
 			this.pnlLogo.Size = new System.Drawing.Size(189, 100);
 			this.pnlLogo.TabIndex = 0;
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Image = global::Academia.Properties.Resources.LogoTaoFit;
-			this.pictureBox1.Location = new System.Drawing.Point(38, 0);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(114, 100);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox1.TabIndex = 0;
-			this.pictureBox1.TabStop = false;
 			// 
 			// SideBarPanel
 			// 
@@ -256,6 +247,7 @@
 			// pnlAdicionarVisitante
 			// 
 			this.pnlAdicionarVisitante.BackColor = System.Drawing.Color.White;
+			this.pnlAdicionarVisitante.Controls.Add(this.visitantesUserControl1);
 			this.pnlAdicionarVisitante.Controls.Add(this.txtPesquisarVisitantePorNome);
 			this.pnlAdicionarVisitante.Controls.Add(this.label11);
 			this.pnlAdicionarVisitante.Controls.Add(this.btnNovoVisitante);
@@ -301,22 +293,6 @@
 			this.label11.TabIndex = 24;
 			this.label11.Text = "Pesquisar:";
 			// 
-			// btnNovoVisitante
-			// 
-			this.btnNovoVisitante.BackColor = System.Drawing.Color.White;
-			this.btnNovoVisitante.FlatAppearance.BorderSize = 0;
-			this.btnNovoVisitante.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
-			this.btnNovoVisitante.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.btnNovoVisitante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnNovoVisitante.Image = global::Academia.Properties.Resources.icons8_Plus_48px;
-			this.btnNovoVisitante.Location = new System.Drawing.Point(807, 580);
-			this.btnNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
-			this.btnNovoVisitante.Name = "btnNovoVisitante";
-			this.btnNovoVisitante.Size = new System.Drawing.Size(60, 60);
-			this.btnNovoVisitante.TabIndex = 23;
-			this.btnNovoVisitante.UseVisualStyleBackColor = false;
-			this.btnNovoVisitante.Click += new System.EventHandler(this.btnNovoVisitante_Click);
-			// 
 			// dgvVisitantes
 			// 
 			this.dgvVisitantes.AllowUserToOrderColumns = true;
@@ -344,9 +320,15 @@
 			this.dgvVisitantes.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvVisitantes_ColumnHeaderMouseClick);
 			this.dgvVisitantes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridVisitantes_RowEnter);
 			// 
-			// visitanteBindingSource
+			// ProximoContato
 			// 
-			this.visitanteBindingSource.DataSource = typeof(Academia.Model.Visitante);
+			this.ProximoContato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+			this.ProximoContato.DataPropertyName = "ProximoContato";
+			this.ProximoContato.HeaderText = "Proximo Contato";
+			this.ProximoContato.Name = "ProximoContato";
+			this.ProximoContato.ReadOnly = true;
+			this.ProximoContato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+			this.ProximoContato.Width = 24;
 			// 
 			// dtpProximoContatoVisitante
 			// 
@@ -387,38 +369,6 @@
 			this.label9.Size = new System.Drawing.Size(129, 22);
 			this.label9.TabIndex = 18;
 			this.label9.Text = "Informações:";
-			// 
-			// btnCancelarNovoVisitante
-			// 
-			this.btnCancelarNovoVisitante.BackColor = System.Drawing.Color.White;
-			this.btnCancelarNovoVisitante.FlatAppearance.BorderSize = 0;
-			this.btnCancelarNovoVisitante.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
-			this.btnCancelarNovoVisitante.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.btnCancelarNovoVisitante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnCancelarNovoVisitante.Image = global::Academia.Properties.Resources.icons8_Delete_48px;
-			this.btnCancelarNovoVisitante.Location = new System.Drawing.Point(971, 580);
-			this.btnCancelarNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
-			this.btnCancelarNovoVisitante.Name = "btnCancelarNovoVisitante";
-			this.btnCancelarNovoVisitante.Size = new System.Drawing.Size(60, 60);
-			this.btnCancelarNovoVisitante.TabIndex = 18;
-			this.btnCancelarNovoVisitante.UseVisualStyleBackColor = false;
-			this.btnCancelarNovoVisitante.Click += new System.EventHandler(this.btnDeletarVisitante_Click);
-			// 
-			// btnSalvarNovoVisitante
-			// 
-			this.btnSalvarNovoVisitante.BackColor = System.Drawing.Color.White;
-			this.btnSalvarNovoVisitante.FlatAppearance.BorderSize = 0;
-			this.btnSalvarNovoVisitante.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
-			this.btnSalvarNovoVisitante.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.btnSalvarNovoVisitante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSalvarNovoVisitante.Image = global::Academia.Properties.Resources.icons8_Checkmark_48px;
-			this.btnSalvarNovoVisitante.Location = new System.Drawing.Point(889, 580);
-			this.btnSalvarNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
-			this.btnSalvarNovoVisitante.Name = "btnSalvarNovoVisitante";
-			this.btnSalvarNovoVisitante.Size = new System.Drawing.Size(60, 60);
-			this.btnSalvarNovoVisitante.TabIndex = 17;
-			this.btnSalvarNovoVisitante.UseVisualStyleBackColor = false;
-			this.btnSalvarNovoVisitante.Click += new System.EventHandler(this.btnSalvarVisitante_Click);
 			// 
 			// txtTelefoneVisitante2
 			// 
@@ -587,6 +537,65 @@
 			this.pnlAlunos.Size = new System.Drawing.Size(1073, 673);
 			this.pnlAlunos.TabIndex = 1;
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = global::Academia.Properties.Resources.LogoTaoFit;
+			this.pictureBox1.Location = new System.Drawing.Point(38, 0);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(114, 100);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.TabIndex = 0;
+			this.pictureBox1.TabStop = false;
+			// 
+			// btnNovoVisitante
+			// 
+			this.btnNovoVisitante.BackColor = System.Drawing.Color.White;
+			this.btnNovoVisitante.FlatAppearance.BorderSize = 0;
+			this.btnNovoVisitante.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
+			this.btnNovoVisitante.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnNovoVisitante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnNovoVisitante.Image = global::Academia.Properties.Resources.icons8_Plus_48px;
+			this.btnNovoVisitante.Location = new System.Drawing.Point(807, 580);
+			this.btnNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
+			this.btnNovoVisitante.Name = "btnNovoVisitante";
+			this.btnNovoVisitante.Size = new System.Drawing.Size(60, 60);
+			this.btnNovoVisitante.TabIndex = 23;
+			this.btnNovoVisitante.UseVisualStyleBackColor = false;
+			this.btnNovoVisitante.Click += new System.EventHandler(this.btnNovoVisitante_Click);
+			// 
+			// btnCancelarNovoVisitante
+			// 
+			this.btnCancelarNovoVisitante.BackColor = System.Drawing.Color.White;
+			this.btnCancelarNovoVisitante.FlatAppearance.BorderSize = 0;
+			this.btnCancelarNovoVisitante.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
+			this.btnCancelarNovoVisitante.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnCancelarNovoVisitante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnCancelarNovoVisitante.Image = global::Academia.Properties.Resources.icons8_Delete_48px;
+			this.btnCancelarNovoVisitante.Location = new System.Drawing.Point(971, 580);
+			this.btnCancelarNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
+			this.btnCancelarNovoVisitante.Name = "btnCancelarNovoVisitante";
+			this.btnCancelarNovoVisitante.Size = new System.Drawing.Size(60, 60);
+			this.btnCancelarNovoVisitante.TabIndex = 18;
+			this.btnCancelarNovoVisitante.UseVisualStyleBackColor = false;
+			this.btnCancelarNovoVisitante.Click += new System.EventHandler(this.btnDeletarVisitante_Click);
+			// 
+			// btnSalvarNovoVisitante
+			// 
+			this.btnSalvarNovoVisitante.BackColor = System.Drawing.Color.White;
+			this.btnSalvarNovoVisitante.FlatAppearance.BorderSize = 0;
+			this.btnSalvarNovoVisitante.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
+			this.btnSalvarNovoVisitante.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnSalvarNovoVisitante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnSalvarNovoVisitante.Image = global::Academia.Properties.Resources.icons8_Checkmark_48px;
+			this.btnSalvarNovoVisitante.Location = new System.Drawing.Point(889, 580);
+			this.btnSalvarNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
+			this.btnSalvarNovoVisitante.Name = "btnSalvarNovoVisitante";
+			this.btnSalvarNovoVisitante.Size = new System.Drawing.Size(60, 60);
+			this.btnSalvarNovoVisitante.TabIndex = 17;
+			this.btnSalvarNovoVisitante.UseVisualStyleBackColor = false;
+			this.btnSalvarNovoVisitante.Click += new System.EventHandler(this.btnSalvarVisitante_Click);
+			// 
 			// idDataGridViewTextBoxColumn
 			// 
 			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -612,17 +621,7 @@
 			this.DataVisita.Name = "DataVisita";
 			this.DataVisita.ReadOnly = true;
 			this.DataVisita.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-			this.DataVisita.Width = 139;
-			// 
-			// ProximoContato
-			// 
-			this.ProximoContato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-			this.ProximoContato.DataPropertyName = "ProximoContato";
-			this.ProximoContato.HeaderText = "Proximo Contato";
-			this.ProximoContato.Name = "ProximoContato";
-			this.ProximoContato.ReadOnly = true;
-			this.ProximoContato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-			this.ProximoContato.Width = 24;
+			this.DataVisita.Width = 127;
 			// 
 			// contatoDataGridViewTextBoxColumn
 			// 
@@ -632,7 +631,20 @@
 			this.contatoDataGridViewTextBoxColumn.Name = "contatoDataGridViewTextBoxColumn";
 			this.contatoDataGridViewTextBoxColumn.ReadOnly = true;
 			this.contatoDataGridViewTextBoxColumn.Visible = false;
-			this.contatoDataGridViewTextBoxColumn.Width = 117;
+			this.contatoDataGridViewTextBoxColumn.Width = 86;
+			// 
+			// visitanteBindingSource
+			// 
+			this.visitanteBindingSource.DataSource = typeof(Academia.Model.Visitante);
+			// 
+			// visitantesUserControl1
+			// 
+			this.visitantesUserControl1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.visitantesUserControl1.Location = new System.Drawing.Point(0, 0);
+			this.visitantesUserControl1.Margin = new System.Windows.Forms.Padding(0);
+			this.visitantesUserControl1.Name = "visitantesUserControl1";
+			this.visitantesUserControl1.Size = new System.Drawing.Size(1073, 673);
+			this.visitantesUserControl1.TabIndex = 26;
 			// 
 			// MainForm
 			// 
@@ -651,16 +663,16 @@
 			this.MainTablePanel.ResumeLayout(false);
 			this.SidebarTablePanel.ResumeLayout(false);
 			this.pnlLogo.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.SideBarPanel.ResumeLayout(false);
 			this.pnlMain.ResumeLayout(false);
 			this.pnlVisitantes.ResumeLayout(false);
 			this.pnlAdicionarVisitante.ResumeLayout(false);
 			this.pnlAdicionarVisitante.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVisitantes)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).EndInit();
 			this.pnlHome.ResumeLayout(false);
 			this.pnlHome.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -713,5 +725,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn DataVisita;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ProximoContato;
 		private System.Windows.Forms.DataGridViewTextBoxColumn contatoDataGridViewTextBoxColumn;
+		private System.ComponentModel.BackgroundWorker backgroundWorker1;
+		private VisitantesUserControl visitantesUserControl1;
 	}
 }
