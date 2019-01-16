@@ -12,25 +12,27 @@ using Academia.Model;
 
 namespace Academia
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public partial class MainForm : Form
 	{
-		private ControleVisitante _controleVisitante;
-		private Visitante _visitanteAtual;
+
 
 		public MainForm()
 		{
 			InitializeComponent();
 		}
 
-		private void MainForm_Load(object sender, EventArgs e)
-		{
-			if (_controleVisitante == null)
-			{
-				_controleVisitante = new ControleVisitante();
-			}
+		//private void MainForm_Load(object sender, EventArgs e)
+		//{
+		//	if (_controleVisitante == null)
+		//	{
+		//		_controleVisitante = new ControleVisitante();
+		//	}
 
-			AtualizarDataGridVisitantes();
-		}
+		//	//AtualizarDataGridVisitantes();
+		//}
 
 
 		/**Sidebar**/
@@ -40,29 +42,29 @@ namespace Academia
 		{
 			pnlBotaoSelecionado.Height = btnHome.Height;
 			pnlBotaoSelecionado.Top = btnHome.Top;
-			pnlHome.BringToFront();
+			//pnlHome.BringToFront();
 		}
 
 		private void btnAlunos_Click(object sender, EventArgs e)
 		{
 			pnlBotaoSelecionado.Height = btnAlunos.Height;
 			pnlBotaoSelecionado.Top = btnAlunos.Top;
-			pnlAlunos.BringToFront();
+			//pnlAlunos.BringToFront();
 		}
 
 		private void btnVisitantes_Click(object sender, EventArgs e)
 		{
 			pnlBotaoSelecionado.Height = btnVisitantes.Height;
 			pnlBotaoSelecionado.Top = btnVisitantes.Top;
-			pnlVisitantes.BringToFront();
-			dgvVisitantes.Focus();
+			//pnlVisitantes.BringToFront();
+			//dgvVisitantes.Focus();
 		}
 
 		private void btnFinanceiro_Click(object sender, EventArgs e)
 		{
 			pnlBotaoSelecionado.Height = btnFinanceiro.Height;
 			pnlBotaoSelecionado.Top = btnFinanceiro.Top;
-			pnlFinanceiro.BringToFront();
+			//pnlFinanceiro.BringToFront();
 		}
 
 
@@ -74,192 +76,192 @@ namespace Academia
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void btnSalvarVisitante_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				if (_visitanteAtual == null)
-				{
-					_controleVisitante.AdicionarNovoVisitante(txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value, txtEmailVisitante.Text,
-					txtTelefoneVisitante1.Text, txtTelefoneVisitante2.Text, rtbInformacoesVisitante.Text);
-					AtualizarDataGridVisitantes();
-					SelecionarUltimoVisitante();
+	//	private void btnSalvarVisitante_Click(object sender, EventArgs e)
+	//	{
+	//		try
+	//		{
+	//			if (_visitanteAtual == null)
+	//			{
+	//				_controleVisitante.AdicionarNovoVisitante(txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value, txtEmailVisitante.Text,
+	//				txtTelefoneVisitante1.Text, txtTelefoneVisitante2.Text, rtbInformacoesVisitante.Text);
+	//				AtualizarDataGridVisitantes();
+	//				SelecionarUltimoVisitante();
 
-				}
-				else
-				{
-					String pergunta = "Tem certeza de que quer mudar as informações de " + _visitanteAtual.Nome + "?";
+	//			}
+	//			else
+	//			{
+	//				String pergunta = "Tem certeza de que quer mudar as informações de " + _visitanteAtual.Nome + "?";
 
-					DialogResult dialogResult = MessageBox.Show(pergunta, "Atualizar Visitante", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-					if (dialogResult == DialogResult.Yes)
-					{
-						_controleVisitante.AtualizarVisitante(_visitanteAtual.Id, txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value, txtEmailVisitante.Text,
-						txtTelefoneVisitante1.Text, txtTelefoneVisitante2.Text, rtbInformacoesVisitante.Text);
-						AtualizarDataGridVisitantes();
-					}
+	//				DialogResult dialogResult = MessageBox.Show(pergunta, "Atualizar Visitante", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+	//				if (dialogResult == DialogResult.Yes)
+	//				{
+	//					_controleVisitante.AtualizarVisitante(_visitanteAtual.Id, txtNomeVisitante.Text, dtpVisitante.Value, dtpProximoContatoVisitante.Value, txtEmailVisitante.Text,
+	//					txtTelefoneVisitante1.Text, txtTelefoneVisitante2.Text, rtbInformacoesVisitante.Text);
+	//					AtualizarDataGridVisitantes();
+	//				}
 
-				}
-			}
-			catch (ArgumentException exception)
-			{
-				MessageBox.Show(exception.Message, "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
+	//			}
+	//		}
+	//		catch (ArgumentException exception)
+	//		{
+	//			MessageBox.Show(exception.Message, "Campo em branco", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+	//		}
 			
-		}
+	//	}
 
-		/// <summary>
-		/// Atualiza o DataGridView de Visitantes com os dados salvos no banco de dados. 
-		/// </summary>
-		private void AtualizarDataGridVisitantes()
-		{
-			dgvVisitantes.DataSource = _controleVisitante.Visitantes;
-		}
+	//	/// <summary>
+	//	/// Atualiza o DataGridView de Visitantes com os dados salvos no banco de dados. 
+	//	/// </summary>
+	//	private void AtualizarDataGridVisitantes()
+	//	{
+	//		dgvVisitantes.DataSource = _controleVisitante.Visitantes;
+	//	}
 
 
-		/// <summary>
-		/// Função para deletar o Visitante selecionado do banco de dados.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void btnDeletarVisitante_Click(object sender, EventArgs e)
-		{
-			if (_visitanteAtual != null)
-			{
-				String pergunta = "Tem certeza de que quer deletar " + _visitanteAtual.Nome + "? Ele não poderá ser recuperado depois.";
+	//	/// <summary>
+	//	/// Função para deletar o Visitante selecionado do banco de dados.
+	//	/// </summary>
+	//	/// <param name="sender"></param>
+	//	/// <param name="e"></param>
+	//	private void btnDeletarVisitante_Click(object sender, EventArgs e)
+	//	{
+	//		if (_visitanteAtual != null)
+	//		{
+	//			String pergunta = "Tem certeza de que quer deletar " + _visitanteAtual.Nome + "? Ele não poderá ser recuperado depois.";
 
-				DialogResult dialogResult = MessageBox.Show(pergunta, "Deletar Visitante", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+	//			DialogResult dialogResult = MessageBox.Show(pergunta, "Deletar Visitante", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
-				if (dialogResult == DialogResult.Yes)
-				{
-					try
-					{
-						_controleVisitante.DeletarVisitante(_visitanteAtual);
-						LimparFormularioVisitante();
-						AtualizarDataGridVisitantes();
-					}
-					catch (ArgumentNullException exception)
-					{
-						MessageBox.Show(exception.Message, "Nenhum Visitante Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					}
-				}
-			}
+	//			if (dialogResult == DialogResult.Yes)
+	//			{
+	//				try
+	//				{
+	//					_controleVisitante.DeletarVisitante(_visitanteAtual);
+	//					LimparFormularioVisitante();
+	//					AtualizarDataGridVisitantes();
+	//				}
+	//				catch (ArgumentNullException exception)
+	//				{
+	//					MessageBox.Show(exception.Message, "Nenhum Visitante Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+	//				}
+	//			}
+	//		}
 			
-		}
+	//	}
 
-		/// <summary>
-		/// Limpa o formulário de visitante
-		/// </summary>
-		private void LimparFormularioVisitante()
-		{
-			txtNomeVisitante.Text = "";
-			dtpVisitante.Value = DateTime.Today;
-			txtEmailVisitante.Text = "";
-			txtTelefoneVisitante1.Text = "";
-			txtTelefoneVisitante2.Text = "";
-			dtpProximoContatoVisitante.Value = DateTime.Today.AddMonths(1);
-			rtbInformacoesVisitante.Text = "";
+	//	/// <summary>
+	//	/// Limpa o formulário de visitante
+	//	/// </summary>
+	//	private void LimparFormularioVisitante()
+	//	{
+	//		txtNomeVisitante.Text = "";
+	//		dtpVisitante.Value = DateTime.Today;
+	//		txtEmailVisitante.Text = "";
+	//		txtTelefoneVisitante1.Text = "";
+	//		txtTelefoneVisitante2.Text = "";
+	//		dtpProximoContatoVisitante.Value = DateTime.Today.AddMonths(1);
+	//		rtbInformacoesVisitante.Text = "";
 
-			txtPesquisarVisitantePorNome.Text = "";
+	//		txtPesquisarVisitantePorNome.Text = "";
 
-			_visitanteAtual = null;
-		}
+	//		_visitanteAtual = null;
+	//	}
 
-		/// <summary>
-		/// Prepara o formulário para a inclusão de novo visitante
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void btnNovoVisitante_Click(object sender, EventArgs e)
-		{
-			_visitanteAtual = null;
-			LimparFormularioVisitante();
-			txtNomeVisitante.Focus();
-		}
+	//	/// <summary>
+	//	/// Prepara o formulário para a inclusão de novo visitante
+	//	/// </summary>
+	//	/// <param name="sender"></param>
+	//	/// <param name="e"></param>
+	//	private void btnNovoVisitante_Click(object sender, EventArgs e)
+	//	{
+	//		_visitanteAtual = null;
+	//		LimparFormularioVisitante();
+	//		txtNomeVisitante.Focus();
+	//	}
 
-		/// <summary>
-		/// Preenche o formulário de visitantes com os dados do item selecionado.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void DataGridVisitantes_RowEnter(object sender, DataGridViewCellEventArgs e)
-		{
-			PreencheFormularioVisitante(e.RowIndex);
-		}
+	//	/// <summary>
+	//	/// Preenche o formulário de visitantes com os dados do item selecionado.
+	//	/// </summary>
+	//	/// <param name="sender"></param>
+	//	/// <param name="e"></param>
+	//	private void DataGridVisitantes_RowEnter(object sender, DataGridViewCellEventArgs e)
+	//	{
+	//		PreencheFormularioVisitante(e.RowIndex);
+	//	}
 
-		/// <summary>
-		/// Preenche o formulário com os dados do visitante passado como parâmetro.
-		/// </summary>
-		/// <param name="index"></param>
-		private void PreencheFormularioVisitante(int index)
-		{
-			_visitanteAtual = _controleVisitante.Visitantes[index];
+	//	/// <summary>
+	//	/// Preenche o formulário com os dados do visitante passado como parâmetro.
+	//	/// </summary>
+	//	/// <param name="index"></param>
+	//	private void PreencheFormularioVisitante(int index)
+	//	{
+	//		_visitanteAtual = _controleVisitante.Visitantes[index];
 
-			txtNomeVisitante.Text = _visitanteAtual.Nome;
-			dtpVisitante.Value = _visitanteAtual.DataVisita;
-			dtpProximoContatoVisitante.Value = _visitanteAtual.ProximoContato;
-			rtbInformacoesVisitante.Text = _visitanteAtual.Informacoes;
+	//		txtNomeVisitante.Text = _visitanteAtual.Nome;
+	//		dtpVisitante.Value = _visitanteAtual.DataVisita;
+	//		dtpProximoContatoVisitante.Value = _visitanteAtual.ProximoContato;
+	//		rtbInformacoesVisitante.Text = _visitanteAtual.Informacoes;
 
-			txtEmailVisitante.Text = _visitanteAtual.Contato.Email;
-			txtTelefoneVisitante1.Text = _visitanteAtual.Contato.Telefone1;
-			txtTelefoneVisitante2.Text = _visitanteAtual.Contato.Telefone2;
-		}
+	//		txtEmailVisitante.Text = _visitanteAtual.Contato.Email;
+	//		txtTelefoneVisitante1.Text = _visitanteAtual.Contato.Telefone1;
+	//		txtTelefoneVisitante2.Text = _visitanteAtual.Contato.Telefone2;
+	//	}
 
-		/// <summary>
-		/// Seleciona o último visitante do DataGridView
-		/// </summary>
-		private void SelecionarUltimoVisitante()
-		{
-			var index = dgvVisitantes.Rows.Count - 1;
+	//	/// <summary>
+	//	/// Seleciona o último visitante do DataGridView
+	//	/// </summary>
+	//	private void SelecionarUltimoVisitante()
+	//	{
+	//		var index = dgvVisitantes.Rows.Count - 1;
 
-			dgvVisitantes.ClearSelection();
-			dgvVisitantes.FirstDisplayedScrollingRowIndex = index;
-			dgvVisitantes.CurrentCell = dgvVisitantes.Rows[index].Cells[1];
+	//		dgvVisitantes.ClearSelection();
+	//		dgvVisitantes.FirstDisplayedScrollingRowIndex = index;
+	//		dgvVisitantes.CurrentCell = dgvVisitantes.Rows[index].Cells[1];
 
-			_visitanteAtual = _controleVisitante.Visitantes[index];
+	//		_visitanteAtual = _controleVisitante.Visitantes[index];
 
-			PreencheFormularioVisitante(index);
-		}
+	//		PreencheFormularioVisitante(index);
+	//	}
 
-		private void SelecionaPrimeiroVisitante()
-		{
-			if (dgvVisitantes.Rows.Count > 0)
-			{
-				dgvVisitantes.ClearSelection();
-				dgvVisitantes.FirstDisplayedScrollingRowIndex = 0;
-				dgvVisitantes.CurrentCell = dgvVisitantes.Rows[0].Cells[1];
+	//	private void SelecionaPrimeiroVisitante()
+	//	{
+	//		if (dgvVisitantes.Rows.Count > 0)
+	//		{
+	//			dgvVisitantes.ClearSelection();
+	//			dgvVisitantes.FirstDisplayedScrollingRowIndex = 0;
+	//			dgvVisitantes.CurrentCell = dgvVisitantes.Rows[0].Cells[1];
 
-				_visitanteAtual = _controleVisitante.Visitantes[0];
+	//			_visitanteAtual = _controleVisitante.Visitantes[0];
 
-				PreencheFormularioVisitante(0);
-			}
-		}
+	//			PreencheFormularioVisitante(0);
+	//		}
+	//	}
 
-		private void txtPesquisarVisitantePorNome_TextChanged(object sender, EventArgs e)
-		{
-			_controleVisitante.PesquisaVisitantePorNome(txtPesquisarVisitantePorNome.Text);
-			AtualizarDataGridVisitantes();
-		}
+	//	private void txtPesquisarVisitantePorNome_TextChanged(object sender, EventArgs e)
+	//	{
+	//		_controleVisitante.PesquisaVisitantePorNome(txtPesquisarVisitantePorNome.Text);
+	//		AtualizarDataGridVisitantes();
+	//	}
 
-		private void dgvVisitantes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-		{
-			String coluna = dgvVisitantes.Columns[e.ColumnIndex].Name;
-			switch (coluna)
-			{
-				case "Nome":
-					_controleVisitante.OrdenarVisitantesPorNome();
-					break;
-				case "DataVisita":
-					_controleVisitante.OrdenarVisitantesPorDataDeVisita();
-						break;
-				case "ProximoContato":
-					_controleVisitante.OrdenarVisitantesPorDataProximoContato();
-					break;
-				default:
-					_controleVisitante.OrdenarVisitantesPorDataProximoContato();
-					break;
-			}
+	//	private void dgvVisitantes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+	//	{
+	//		String coluna = dgvVisitantes.Columns[e.ColumnIndex].Name;
+	//		switch (coluna)
+	//		{
+	//			case "Nome":
+	//				_controleVisitante.OrdenarVisitantesPorNome();
+	//				break;
+	//			case "DataVisita":
+	//				_controleVisitante.OrdenarVisitantesPorDataDeVisita();
+	//					break;
+	//			case "ProximoContato":
+	//				_controleVisitante.OrdenarVisitantesPorDataProximoContato();
+	//				break;
+	//			default:
+	//				_controleVisitante.OrdenarVisitantesPorDataProximoContato();
+	//				break;
+	//		}
 
-			AtualizarDataGridVisitantes();
-		}
+	//		AtualizarDataGridVisitantes();
+	//	}
 	}
 }
