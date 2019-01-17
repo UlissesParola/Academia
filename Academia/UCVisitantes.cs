@@ -26,6 +26,8 @@ namespace Academia
 
 		private void UCVisitantes_Load(object sender, EventArgs e)
 		{
+			CriarListView();
+
 			PreencherListView(_controleVisitante.Visitantes);
 		}
 
@@ -39,6 +41,9 @@ namespace Academia
 				linha[2] = lista[i].ProximoContato.ToShortDateString();
 
 				ListViewItem item = new ListViewItem(linha);
+				
+				// setando a font do item para que não seja em negrito. 
+				item.Font = new Font(lvwVisitantes.Columns[0].ListView.Font, FontStyle.Regular);
 
 				lvwVisitantes.Items.Add(item);
 
@@ -69,6 +74,32 @@ namespace Academia
 			}
 		}
 
+		private void CriarListView()
+		{
 
+			ColumnHeader cabecalhoNome = new ColumnHeader();
+			cabecalhoNome.Text = "NOME";
+			cabecalhoNome.TextAlign = HorizontalAlignment.Center;
+			cabecalhoNome.Width = 265;
+
+			ColumnHeader cabecalhoDataVisita = new ColumnHeader();
+			cabecalhoDataVisita.Text = "VISITA";
+			cabecalhoDataVisita.TextAlign = HorizontalAlignment.Center;
+			cabecalhoDataVisita.Width = 140;
+
+			ColumnHeader cabecalhoProximoContato = new ColumnHeader();
+			cabecalhoProximoContato.Text = "CONTATO";
+			cabecalhoProximoContato.TextAlign = HorizontalAlignment.Center;
+			cabecalhoProximoContato.Width = 140;
+
+			lvwVisitantes.Columns.Add(cabecalhoNome);
+			lvwVisitantes.Columns.Add(cabecalhoDataVisita);
+			lvwVisitantes.Columns.Add(cabecalhoProximoContato);
+
+			lvwVisitantes.Columns[0].ListView.Font = new Font(lvwVisitantes.Columns[0].ListView.Font, FontStyle.Bold);
+			lvwVisitantes.Columns[1].ListView.Font = new Font(lvwVisitantes.Columns[1].ListView.Font, FontStyle.Bold);
+			lvwVisitantes.Columns[2].ListView.Font = new Font(lvwVisitantes.Columns[2].ListView.Font, FontStyle.Bold);
+
+		}
 	}
 }

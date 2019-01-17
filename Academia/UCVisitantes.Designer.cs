@@ -30,9 +30,6 @@
 		{
 			this.pnlVisitantes = new System.Windows.Forms.Panel();
 			this.lvwVisitantes = new System.Windows.Forms.ListView();
-			this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.DataVisita = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.DataContato = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.txtPesquisarVisitantePorNome = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
@@ -93,11 +90,8 @@
 			// 
 			this.lvwVisitantes.AllowColumnReorder = true;
 			this.lvwVisitantes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lvwVisitantes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Nome,
-            this.DataVisita,
-            this.DataContato});
 			this.lvwVisitantes.FullRowSelect = true;
+			this.lvwVisitantes.GridLines = true;
 			this.lvwVisitantes.Location = new System.Drawing.Point(44, 196);
 			this.lvwVisitantes.MultiSelect = false;
 			this.lvwVisitantes.Name = "lvwVisitantes";
@@ -105,23 +99,6 @@
 			this.lvwVisitantes.TabIndex = 44;
 			this.lvwVisitantes.UseCompatibleStateImageBehavior = false;
 			this.lvwVisitantes.View = System.Windows.Forms.View.Details;
-			// 
-			// Nome
-			// 
-			this.Nome.Text = "Nome";
-			this.Nome.Width = 250;
-			// 
-			// DataVisita
-			// 
-			this.DataVisita.Text = "Data Visita";
-			this.DataVisita.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.DataVisita.Width = 145;
-			// 
-			// DataContato
-			// 
-			this.DataContato.Text = "Data Contato";
-			this.DataContato.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.DataContato.Width = 145;
 			// 
 			// txtPesquisarVisitantePorNome
 			// 
@@ -380,8 +357,5 @@
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ListView lvwVisitantes;
-		private System.Windows.Forms.ColumnHeader Nome;
-		private System.Windows.Forms.ColumnHeader DataVisita;
-		private System.Windows.Forms.ColumnHeader DataContato;
 	}
 }
