@@ -99,6 +99,8 @@
 			this.lvwVisitantes.TabIndex = 44;
 			this.lvwVisitantes.UseCompatibleStateImageBehavior = false;
 			this.lvwVisitantes.View = System.Windows.Forms.View.Details;
+			this.lvwVisitantes.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwVisitantes_ColumnClick);
+			this.lvwVisitantes.SelectedIndexChanged += new System.EventHandler(this.lvwVisitantes_SelectedIndexChanged);
 			// 
 			// txtPesquisarVisitantePorNome
 			// 
@@ -107,6 +109,7 @@
 			this.txtPesquisarVisitantePorNome.Name = "txtPesquisarVisitantePorNome";
 			this.txtPesquisarVisitantePorNome.Size = new System.Drawing.Size(445, 30);
 			this.txtPesquisarVisitantePorNome.TabIndex = 43;
+			this.txtPesquisarVisitantePorNome.TextChanged += new System.EventHandler(this.txtPesquisarVisitantePorNome_TextChanged);
 			// 
 			// label11
 			// 
@@ -141,6 +144,7 @@
 			this.btnNovoVisitante.Size = new System.Drawing.Size(60, 61);
 			this.btnNovoVisitante.TabIndex = 40;
 			this.btnNovoVisitante.UseVisualStyleBackColor = false;
+			this.btnNovoVisitante.Click += new System.EventHandler(this.btnNovoVisitante_Click);
 			// 
 			// dtpProximoContatoVisitante
 			// 
@@ -198,6 +202,7 @@
 			this.btnCancelarNovoVisitante.Size = new System.Drawing.Size(60, 61);
 			this.btnCancelarNovoVisitante.TabIndex = 37;
 			this.btnCancelarNovoVisitante.UseVisualStyleBackColor = false;
+			this.btnCancelarNovoVisitante.Click += new System.EventHandler(this.btnCancelarNovoVisitante_Click);
 			// 
 			// btnSalvarNovoVisitante
 			// 
@@ -213,6 +218,7 @@
 			this.btnSalvarNovoVisitante.Size = new System.Drawing.Size(60, 61);
 			this.btnSalvarNovoVisitante.TabIndex = 36;
 			this.btnSalvarNovoVisitante.UseVisualStyleBackColor = false;
+			this.btnSalvarNovoVisitante.Click += new System.EventHandler(this.btnSalvarNovoVisitante_Click);
 			// 
 			// txtTelefoneVisitante2
 			// 

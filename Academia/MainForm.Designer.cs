@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.MainTablePanel = new System.Windows.Forms.TableLayoutPanel();
 			this.pnlMain = new System.Windows.Forms.Panel();
@@ -41,17 +40,13 @@
 			this.btnVisitantes = new System.Windows.Forms.Button();
 			this.btnAlunos = new System.Windows.Forms.Button();
 			this.btnHome = new System.Windows.Forms.Button();
-			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-			this.visitanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.ucVisitantes1 = new Academia.UCVisitantes();
+			this.ucVisitantes2 = new Academia.UCVisitantes();
 			this.MainTablePanel.SuspendLayout();
 			this.pnlMain.SuspendLayout();
 			this.SidebarTablePanel.SuspendLayout();
 			this.pnlLogo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SideBarPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainTablePanel
@@ -77,7 +72,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnlMain.AutoSize = true;
 			this.pnlMain.BackColor = System.Drawing.Color.White;
-			this.pnlMain.Controls.Add(this.ucVisitantes1);
+			this.pnlMain.Controls.Add(this.ucVisitantes2);
 			this.pnlMain.Location = new System.Drawing.Point(189, 0);
 			this.pnlMain.Margin = new System.Windows.Forms.Padding(0);
 			this.pnlMain.Name = "pnlMain";
@@ -207,19 +202,15 @@
 			this.btnHome.UseVisualStyleBackColor = false;
 			this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
 			// 
-			// visitanteBindingSource
+			// ucVisitantes2
 			// 
-			this.visitanteBindingSource.DataSource = typeof(Academia.Model.Visitante);
-			// 
-			// ucVisitantes1
-			// 
-			this.ucVisitantes1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ucVisitantes1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ucVisitantes1.Location = new System.Drawing.Point(0, 0);
-			this.ucVisitantes1.Margin = new System.Windows.Forms.Padding(0);
-			this.ucVisitantes1.Name = "ucVisitantes1";
-			this.ucVisitantes1.Size = new System.Drawing.Size(1072, 673);
-			this.ucVisitantes1.TabIndex = 0;
+			this.ucVisitantes2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.ucVisitantes2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ucVisitantes2.Location = new System.Drawing.Point(0, 0);
+			this.ucVisitantes2.Margin = new System.Windows.Forms.Padding(0);
+			this.ucVisitantes2.Name = "ucVisitantes2";
+			this.ucVisitantes2.Size = new System.Drawing.Size(1072, 673);
+			this.ucVisitantes2.TabIndex = 0;
 			// 
 			// MainForm
 			// 
@@ -240,7 +231,6 @@
 			this.pnlLogo.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.SideBarPanel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.visitanteBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -258,9 +248,7 @@
 		private System.Windows.Forms.Button btnAlunos;
 		private System.Windows.Forms.Button btnHome;
 		private System.Windows.Forms.Panel pnlMain;
-		private System.Windows.Forms.BindingSource visitanteBindingSource;
-		private System.ComponentModel.BackgroundWorker backgroundWorker1;
-		private System.ComponentModel.BackgroundWorker backgroundWorker2;
 		private UCVisitantes ucVisitantes1;
+		private UCVisitantes ucVisitantes2;
 	}
 }
