@@ -50,16 +50,18 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtNomeVisitante = new System.Windows.Forms.TextBox();
 			this.lblNome = new System.Windows.Forms.Label();
+			this.TopPanel = new System.Windows.Forms.Panel();
 			this.pnlVisitantes.SuspendLayout();
+			this.TopPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlVisitantes
 			// 
 			this.pnlVisitantes.BackColor = System.Drawing.Color.White;
+			this.pnlVisitantes.Controls.Add(this.TopPanel);
 			this.pnlVisitantes.Controls.Add(this.lvwVisitantes);
 			this.pnlVisitantes.Controls.Add(this.txtPesquisarVisitantePorNome);
 			this.pnlVisitantes.Controls.Add(this.label11);
-			this.pnlVisitantes.Controls.Add(this.label1);
 			this.pnlVisitantes.Controls.Add(this.btnNovoVisitante);
 			this.pnlVisitantes.Controls.Add(this.dtpProximoContatoVisitante);
 			this.pnlVisitantes.Controls.Add(this.label10);
@@ -80,10 +82,10 @@
 			this.pnlVisitantes.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlVisitantes.Location = new System.Drawing.Point(0, 0);
 			this.pnlVisitantes.Margin = new System.Windows.Forms.Padding(0);
-			this.pnlVisitantes.MaximumSize = new System.Drawing.Size(1072, 673);
-			this.pnlVisitantes.MinimumSize = new System.Drawing.Size(1072, 673);
+			this.pnlVisitantes.MaximumSize = new System.Drawing.Size(1146, 721);
+			this.pnlVisitantes.MinimumSize = new System.Drawing.Size(1146, 721);
 			this.pnlVisitantes.Name = "pnlVisitantes";
-			this.pnlVisitantes.Size = new System.Drawing.Size(1072, 673);
+			this.pnlVisitantes.Size = new System.Drawing.Size(1146, 721);
 			this.pnlVisitantes.TabIndex = 0;
 			// 
 			// lvwVisitantes
@@ -92,7 +94,7 @@
 			this.lvwVisitantes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.lvwVisitantes.FullRowSelect = true;
 			this.lvwVisitantes.GridLines = true;
-			this.lvwVisitantes.Location = new System.Drawing.Point(44, 196);
+			this.lvwVisitantes.Location = new System.Drawing.Point(64, 238);
 			this.lvwVisitantes.MultiSelect = false;
 			this.lvwVisitantes.Name = "lvwVisitantes";
 			this.lvwVisitantes.Size = new System.Drawing.Size(545, 380);
@@ -104,7 +106,7 @@
 			// 
 			// txtPesquisarVisitantePorNome
 			// 
-			this.txtPesquisarVisitantePorNome.Location = new System.Drawing.Point(144, 133);
+			this.txtPesquisarVisitantePorNome.Location = new System.Drawing.Point(164, 175);
 			this.txtPesquisarVisitantePorNome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtPesquisarVisitantePorNome.Name = "txtPesquisarVisitantePorNome";
 			this.txtPesquisarVisitantePorNome.Size = new System.Drawing.Size(445, 30);
@@ -114,7 +116,7 @@
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(40, 138);
+			this.label11.Location = new System.Drawing.Point(60, 180);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(99, 22);
 			this.label11.TabIndex = 42;
@@ -123,8 +125,9 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.label1.Font = new System.Drawing.Font("Century Gothic", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(421, 26);
+			this.label1.Location = new System.Drawing.Point(35, 27);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(239, 58);
 			this.label1.TabIndex = 41;
@@ -138,7 +141,7 @@
 			this.btnNovoVisitante.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.btnNovoVisitante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnNovoVisitante.Image = global::Academia.Properties.Resources.icons8_Plus_48px;
-			this.btnNovoVisitante.Location = new System.Drawing.Point(800, 578);
+			this.btnNovoVisitante.Location = new System.Drawing.Point(837, 620);
 			this.btnNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
 			this.btnNovoVisitante.Name = "btnNovoVisitante";
 			this.btnNovoVisitante.Size = new System.Drawing.Size(60, 61);
@@ -150,7 +153,7 @@
 			// 
 			this.dtpProximoContatoVisitante.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dtpProximoContatoVisitante.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtpProximoContatoVisitante.Location = new System.Drawing.Point(813, 356);
+			this.dtpProximoContatoVisitante.Location = new System.Drawing.Point(850, 398);
 			this.dtpProximoContatoVisitante.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dtpProximoContatoVisitante.Name = "dtpProximoContatoVisitante";
 			this.dtpProximoContatoVisitante.Size = new System.Drawing.Size(147, 30);
@@ -161,7 +164,7 @@
 			// 
 			this.label10.AutoSize = true;
 			this.label10.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label10.Location = new System.Drawing.Point(630, 359);
+			this.label10.Location = new System.Drawing.Point(667, 401);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(177, 22);
 			this.label10.TabIndex = 39;
@@ -171,7 +174,7 @@
 			// 
 			this.rtbInformacoesVisitante.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.rtbInformacoesVisitante.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.rtbInformacoesVisitante.Location = new System.Drawing.Point(634, 448);
+			this.rtbInformacoesVisitante.Location = new System.Drawing.Point(671, 490);
 			this.rtbInformacoesVisitante.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.rtbInformacoesVisitante.Name = "rtbInformacoesVisitante";
 			this.rtbInformacoesVisitante.Size = new System.Drawing.Size(393, 128);
@@ -182,7 +185,7 @@
 			// 
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.Location = new System.Drawing.Point(630, 404);
+			this.label9.Location = new System.Drawing.Point(667, 446);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(129, 22);
 			this.label9.TabIndex = 38;
@@ -196,7 +199,7 @@
 			this.btnCancelarNovoVisitante.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.btnCancelarNovoVisitante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnCancelarNovoVisitante.Image = global::Academia.Properties.Resources.icons8_Delete_48px;
-			this.btnCancelarNovoVisitante.Location = new System.Drawing.Point(964, 578);
+			this.btnCancelarNovoVisitante.Location = new System.Drawing.Point(1001, 620);
 			this.btnCancelarNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
 			this.btnCancelarNovoVisitante.Name = "btnCancelarNovoVisitante";
 			this.btnCancelarNovoVisitante.Size = new System.Drawing.Size(60, 61);
@@ -212,7 +215,7 @@
 			this.btnSalvarNovoVisitante.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.btnSalvarNovoVisitante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnSalvarNovoVisitante.Image = global::Academia.Properties.Resources.icons8_Checkmark_48px;
-			this.btnSalvarNovoVisitante.Location = new System.Drawing.Point(881, 578);
+			this.btnSalvarNovoVisitante.Location = new System.Drawing.Point(918, 620);
 			this.btnSalvarNovoVisitante.Margin = new System.Windows.Forms.Padding(0);
 			this.btnSalvarNovoVisitante.Name = "btnSalvarNovoVisitante";
 			this.btnSalvarNovoVisitante.Size = new System.Drawing.Size(60, 61);
@@ -224,7 +227,7 @@
 			// 
 			this.txtTelefoneVisitante2.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
 			this.txtTelefoneVisitante2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtTelefoneVisitante2.Location = new System.Drawing.Point(733, 311);
+			this.txtTelefoneVisitante2.Location = new System.Drawing.Point(770, 353);
 			this.txtTelefoneVisitante2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtTelefoneVisitante2.Mask = "(99) 00000-0000";
 			this.txtTelefoneVisitante2.Name = "txtTelefoneVisitante2";
@@ -236,7 +239,7 @@
 			// 
 			this.txtTelefoneVisitante1.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
 			this.txtTelefoneVisitante1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtTelefoneVisitante1.Location = new System.Drawing.Point(733, 266);
+			this.txtTelefoneVisitante1.Location = new System.Drawing.Point(770, 308);
 			this.txtTelefoneVisitante1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtTelefoneVisitante1.Mask = "(99) 00000-0000";
 			this.txtTelefoneVisitante1.Name = "txtTelefoneVisitante1";
@@ -248,7 +251,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(630, 315);
+			this.label5.Location = new System.Drawing.Point(667, 357);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(92, 22);
 			this.label5.TabIndex = 31;
@@ -258,7 +261,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(630, 271);
+			this.label4.Location = new System.Drawing.Point(667, 313);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(92, 22);
 			this.label4.TabIndex = 30;
@@ -267,7 +270,7 @@
 			// txtEmailVisitante
 			// 
 			this.txtEmailVisitante.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtEmailVisitante.Location = new System.Drawing.Point(733, 221);
+			this.txtEmailVisitante.Location = new System.Drawing.Point(770, 263);
 			this.txtEmailVisitante.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtEmailVisitante.Name = "txtEmailVisitante";
 			this.txtEmailVisitante.Size = new System.Drawing.Size(294, 30);
@@ -277,7 +280,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(630, 225);
+			this.label3.Location = new System.Drawing.Point(667, 267);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(61, 22);
 			this.label3.TabIndex = 28;
@@ -287,7 +290,7 @@
 			// 
 			this.dtpVisitante.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dtpVisitante.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtpVisitante.Location = new System.Drawing.Point(782, 175);
+			this.dtpVisitante.Location = new System.Drawing.Point(819, 217);
 			this.dtpVisitante.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dtpVisitante.Name = "dtpVisitante";
 			this.dtpVisitante.Size = new System.Drawing.Size(147, 30);
@@ -298,7 +301,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(630, 180);
+			this.label2.Location = new System.Drawing.Point(667, 222);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(146, 22);
 			this.label2.TabIndex = 26;
@@ -307,7 +310,7 @@
 			// txtNomeVisitante
 			// 
 			this.txtNomeVisitante.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtNomeVisitante.Location = new System.Drawing.Point(733, 131);
+			this.txtNomeVisitante.Location = new System.Drawing.Point(770, 173);
 			this.txtNomeVisitante.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtNomeVisitante.Name = "txtNomeVisitante";
 			this.txtNomeVisitante.Size = new System.Drawing.Size(294, 30);
@@ -317,11 +320,21 @@
 			// 
 			this.lblNome.AutoSize = true;
 			this.lblNome.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblNome.Location = new System.Drawing.Point(630, 135);
+			this.lblNome.Location = new System.Drawing.Point(667, 177);
 			this.lblNome.Name = "lblNome";
 			this.lblNome.Size = new System.Drawing.Size(70, 22);
 			this.lblNome.TabIndex = 24;
 			this.lblNome.Text = "Nome:";
+			// 
+			// TopPanel
+			// 
+			this.TopPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.TopPanel.Controls.Add(this.label1);
+			this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+			this.TopPanel.Location = new System.Drawing.Point(0, 0);
+			this.TopPanel.Name = "TopPanel";
+			this.TopPanel.Size = new System.Drawing.Size(1146, 108);
+			this.TopPanel.TabIndex = 45;
 			// 
 			// UCVisitantes
 			// 
@@ -331,10 +344,12 @@
 			this.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(0);
 			this.Name = "UCVisitantes";
-			this.Size = new System.Drawing.Size(1072, 673);
+			this.Size = new System.Drawing.Size(1146, 721);
 			this.Load += new System.EventHandler(this.UCVisitantes_Load);
 			this.pnlVisitantes.ResumeLayout(false);
 			this.pnlVisitantes.PerformLayout();
+			this.TopPanel.ResumeLayout(false);
+			this.TopPanel.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -363,5 +378,6 @@
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ListView lvwVisitantes;
+		private System.Windows.Forms.Panel TopPanel;
 	}
 }
