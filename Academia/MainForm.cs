@@ -24,7 +24,10 @@ namespace Academia
 			InitializeComponent();
 		}
 
-
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			//this.Controls.OfType<UserControl>();
+		}
 
 		/**Sidebar**/
 
@@ -56,5 +59,7 @@ namespace Academia
 			pnlBotaoSelecionado.Top = btnFinanceiro.Top;
 			//pnlFinanceiro.BringToFront();
 		}
+
+
 	}
 }

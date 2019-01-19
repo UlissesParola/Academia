@@ -62,7 +62,7 @@
 			this.MainTablePanel.Name = "MainTablePanel";
 			this.MainTablePanel.RowCount = 1;
 			this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.MainTablePanel.Size = new System.Drawing.Size(1262, 673);
+			this.MainTablePanel.Size = new System.Drawing.Size(1348, 721);
 			this.MainTablePanel.TabIndex = 0;
 			// 
 			// pnlMain
@@ -73,10 +73,10 @@
 			this.pnlMain.AutoSize = true;
 			this.pnlMain.BackColor = System.Drawing.Color.White;
 			this.pnlMain.Controls.Add(this.ucVisitantes2);
-			this.pnlMain.Location = new System.Drawing.Point(189, 0);
+			this.pnlMain.Location = new System.Drawing.Point(202, 0);
 			this.pnlMain.Margin = new System.Windows.Forms.Padding(0);
 			this.pnlMain.Name = "pnlMain";
-			this.pnlMain.Size = new System.Drawing.Size(1073, 673);
+			this.pnlMain.Size = new System.Drawing.Size(1146, 721);
 			this.pnlMain.TabIndex = 2;
 			// 
 			// SidebarTablePanel
@@ -93,7 +93,7 @@
 			this.SidebarTablePanel.RowCount = 2;
 			this.SidebarTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
 			this.SidebarTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-			this.SidebarTablePanel.Size = new System.Drawing.Size(189, 673);
+			this.SidebarTablePanel.Size = new System.Drawing.Size(202, 721);
 			this.SidebarTablePanel.TabIndex = 1;
 			// 
 			// pnlLogo
@@ -105,7 +105,7 @@
 			this.pnlLogo.Location = new System.Drawing.Point(0, 0);
 			this.pnlLogo.Margin = new System.Windows.Forms.Padding(0);
 			this.pnlLogo.Name = "pnlLogo";
-			this.pnlLogo.Size = new System.Drawing.Size(189, 100);
+			this.pnlLogo.Size = new System.Drawing.Size(202, 108);
 			this.pnlLogo.TabIndex = 0;
 			// 
 			// pictureBox1
@@ -127,16 +127,16 @@
 			this.SideBarPanel.Controls.Add(this.btnAlunos);
 			this.SideBarPanel.Controls.Add(this.btnHome);
 			this.SideBarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.SideBarPanel.Location = new System.Drawing.Point(0, 100);
+			this.SideBarPanel.Location = new System.Drawing.Point(0, 108);
 			this.SideBarPanel.Margin = new System.Windows.Forms.Padding(0);
 			this.SideBarPanel.Name = "SideBarPanel";
-			this.SideBarPanel.Size = new System.Drawing.Size(189, 573);
+			this.SideBarPanel.Size = new System.Drawing.Size(202, 613);
 			this.SideBarPanel.TabIndex = 1;
 			// 
 			// pnlBotaoSelecionado
 			// 
 			this.pnlBotaoSelecionado.BackColor = System.Drawing.Color.Maroon;
-			this.pnlBotaoSelecionado.Location = new System.Drawing.Point(22, 33);
+			this.pnlBotaoSelecionado.Location = new System.Drawing.Point(17, 33);
 			this.pnlBotaoSelecionado.Margin = new System.Windows.Forms.Padding(0);
 			this.pnlBotaoSelecionado.Name = "pnlBotaoSelecionado";
 			this.pnlBotaoSelecionado.Size = new System.Drawing.Size(13, 43);
@@ -148,7 +148,7 @@
 			this.btnFinanceiro.FlatAppearance.BorderSize = 0;
 			this.btnFinanceiro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnFinanceiro.ForeColor = System.Drawing.Color.WhiteSmoke;
-			this.btnFinanceiro.Location = new System.Drawing.Point(35, 246);
+			this.btnFinanceiro.Location = new System.Drawing.Point(30, 245);
 			this.btnFinanceiro.Margin = new System.Windows.Forms.Padding(0);
 			this.btnFinanceiro.Name = "btnFinanceiro";
 			this.btnFinanceiro.Size = new System.Drawing.Size(154, 43);
@@ -163,7 +163,7 @@
 			this.btnVisitantes.FlatAppearance.BorderSize = 0;
 			this.btnVisitantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnVisitantes.ForeColor = System.Drawing.Color.WhiteSmoke;
-			this.btnVisitantes.Location = new System.Drawing.Point(35, 175);
+			this.btnVisitantes.Location = new System.Drawing.Point(30, 174);
 			this.btnVisitantes.Margin = new System.Windows.Forms.Padding(0);
 			this.btnVisitantes.Name = "btnVisitantes";
 			this.btnVisitantes.Size = new System.Drawing.Size(154, 43);
@@ -178,7 +178,7 @@
 			this.btnAlunos.FlatAppearance.BorderSize = 0;
 			this.btnAlunos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnAlunos.ForeColor = System.Drawing.Color.WhiteSmoke;
-			this.btnAlunos.Location = new System.Drawing.Point(35, 104);
+			this.btnAlunos.Location = new System.Drawing.Point(30, 103);
 			this.btnAlunos.Margin = new System.Windows.Forms.Padding(0);
 			this.btnAlunos.Name = "btnAlunos";
 			this.btnAlunos.Size = new System.Drawing.Size(154, 43);
@@ -193,7 +193,7 @@
 			this.btnHome.FlatAppearance.BorderSize = 0;
 			this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnHome.ForeColor = System.Drawing.Color.WhiteSmoke;
-			this.btnHome.Location = new System.Drawing.Point(35, 33);
+			this.btnHome.Location = new System.Drawing.Point(30, 33);
 			this.btnHome.Margin = new System.Windows.Forms.Padding(0);
 			this.btnHome.Name = "btnHome";
 			this.btnHome.Size = new System.Drawing.Size(154, 43);
@@ -209,21 +209,22 @@
 			this.ucVisitantes2.Location = new System.Drawing.Point(0, 0);
 			this.ucVisitantes2.Margin = new System.Windows.Forms.Padding(0);
 			this.ucVisitantes2.Name = "ucVisitantes2";
-			this.ucVisitantes2.Size = new System.Drawing.Size(1072, 673);
+			this.ucVisitantes2.Size = new System.Drawing.Size(1146, 721);
 			this.ucVisitantes2.TabIndex = 0;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(1262, 673);
+			this.ClientSize = new System.Drawing.Size(1348, 721);
 			this.Controls.Add(this.MainTablePanel);
 			this.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(5);
-			this.MaximumSize = new System.Drawing.Size(1280, 720);
-			this.MinimumSize = new System.Drawing.Size(1280, 720);
+			this.MaximumSize = new System.Drawing.Size(1366, 768);
+			this.MinimumSize = new System.Drawing.Size(1366, 768);
 			this.Name = "MainForm";
 			this.Text = "Taofit";
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.MainTablePanel.ResumeLayout(false);
 			this.MainTablePanel.PerformLayout();
 			this.pnlMain.ResumeLayout(false);

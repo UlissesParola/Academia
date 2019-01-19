@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academia", "Academia\Academia.csproj", "{DD636D51-A32D-44E4-BB70-AE8E3DD3E810}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Taofit Setup", "Taofit Installer\Taofit Installer.vdproj", "{939D85A1-A277-4B15-9593-3574EA4E88C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,9 @@ Global
 		{DD636D51-A32D-44E4-BB70-AE8E3DD3E810}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD636D51-A32D-44E4-BB70-AE8E3DD3E810}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD636D51-A32D-44E4-BB70-AE8E3DD3E810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{939D85A1-A277-4B15-9593-3574EA4E88C7}.Debug|Any CPU.ActiveCfg = Debug
+		{939D85A1-A277-4B15-9593-3574EA4E88C7}.Debug|Any CPU.Build.0 = Debug
+		{939D85A1-A277-4B15-9593-3574EA4E88C7}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
