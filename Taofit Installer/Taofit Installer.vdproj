@@ -45,26 +45,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A28867F7FFDE46BEAA54BCB9F4CBF2AA"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_AAEDD651EEE443079663D5F26F05ECA8"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A1CDC3E6A9A1179CE7630753C1948191"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A28867F7FFDE46BEAA54BCB9F4CBF2AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -83,6 +65,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_38D78D31961ABBCDE2F28D594F890734"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A1CDC3E6A9A1179CE7630753C1948191"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -117,11 +105,6 @@
                     "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 e x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.6.1"
                     }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.Express.11.0"
-                    {
-                    "Name" = "8:SQL Server 2012 Express"
-                    "ProductCode" = "8:Microsoft.SqlServer.Express.11.0"
-                    }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.SqlLocalDB.11.1"
                     {
                     "Name" = "8:SQL Server 2012 Express LocalDB"
@@ -145,26 +128,20 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_00E3134D6EF34EB1B2418169521E972A"
-            {
-            "Name" = "8:SQLServer2017-SSEI-Expr.exe"
-            "Condition" = "8:"
-            "Object" = "8:_A28867F7FFDE46BEAA54BCB9F4CBF2AA"
-            "FileType" = "3:2"
-            "InstallAction" = "3:1"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_CA175D0E_DF9D_494B_A975_3112041CC608"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
         }
         "DefaultFeature"
         {
@@ -301,37 +278,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A28867F7FFDE46BEAA54BCB9F4CBF2AA"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SQLServer2017-SSEI-Expr, Version=14.1805.0.0, Culture=neutral, PublicKeyToken=57d8c1d10de9dc02, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_A28867F7FFDE46BEAA54BCB9F4CBF2AA"
-                    {
-                    "Name" = "8:SQLServer2017-SSEI-Expr.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SQLServer2017-SSEI-Expr.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B07064C43B024B5B901787BAB668F0C7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -400,7 +346,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Taofit"
         "ProductCode" = "8:{87FF2FA2-39F3-4E0F-9657-8B3C9AA345AA}"
-        "PackageCode" = "8:{2E0859BB-D691-4FB4-A1BD-5076C9D122A2}"
+        "PackageCode" = "8:{ACC0F9C1-A630-40F5-8895-DE2B61F4660E}"
         "UpgradeCode" = "8:{7D8D7848-0647-4375-B3F5-D62054143845}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
