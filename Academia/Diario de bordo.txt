@@ -38,3 +38,8 @@
 	Adiocionei o banco de dados e os arquivos do SQLite no projeto com as configurações "conteúdo" e "copiar se for mais novo."
 	Em compilação -> Gerenciamento de Configurações alterei o target do projeto para X64.
 	A aplicação continua não encontrando o dll do SQLite quando instalado.
+
+21/01/2019 - Migracao_para_SQLITE_e_Entity_Core
+	Adicionei o pacote abaixo pelo nuget no projeto da academia:
+		SQLite
+	Spoiler: não funcionou. Continua dando erro de conexão com o banco na instalação. 
