@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,10 +20,15 @@ namespace Academia.Model
 		public DbSet<Visitante> Visitantes { get; set; }
 		public DbSet<Contato> Contatos { get; set; }
 
-
-		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
+			optionsBuilder.UseSqlite("Data Source=.\\TaofitDatabase.db", options =>
+			{
+				options.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
+			});
 
+
+			base.OnConfiguring(optionsBuilder);
 		}
 	}
 }

@@ -1,0 +1,40 @@
+﻿19/01/2019 - Migracao_para_SQLITE_e_Entity_Core
+	Após tentar gerar um instalador da aplicação com SQLSERVER EXPRESS e não funcionar, decidi alterar a versão do entity framework para o Core, assim como migrar o banco de dados para o SQLITE.
+	Tomei essa decisão para deixar o aplicativo mais enxuto e atualizado.
+	Foram instalados os seguintes pacotes:
+		Microsoft.EntityFrameworkCore.Sqlite v2.2.1
+		Microsoft.EntityFrameworkCore.Sqlite.Design v1.1.6
+		Microsoft.EntityFrameworkCore.Tools v2.2.1
+	Como as migrações anterior e, provavelmente, os bancos criados não seriam compativeis com as novas versãos, deletei tanto as migrações quanto os bancos.
+	Limpei o arquivo app.config, removendo todas as linhas referentes ao entity ou banco de dados. As únicas linhas restantes foram as linhas abaixo e aquelas definidas na tag <runtime>:
+		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+		<add key="EnableWindowsFormsHighDpiAutoResizing" value="true" />
+	A primeira definine a versão do DotNet utilizada e a segunda melhora a visualização de fontes no aplicativo.
+	Adicionei algumas linhas no AcademiaDBContext sobrescrevendo OnConfiguring conforme esse tutorial: http://kontext.tech/docs/DotNetEssential/p/sqlite-in-net-core-with-entity-framework-core
+	Só alterei o nome do banco de dados.
+	Atualizei os namespaces utilizados em cada classe e o programa só deu erro ao tentar ler a tabela do banco de dados, como esperado, uma vez que ela foi deletada.
+	Criei a primeira migração com Add-Migration e apliquei ao banco de dados com Update-Database
+	O erro continuou. Instalei o SQLITE e um visualizador do banco para entender melhor o que está acontecendo. 
+	O banco em si está criado, consigo ver o arquivo, acredito que as tabelas é que não tenham sido criadas.
+	Confirmado. As tabelas não estão sendo criadas pelo entity.
+
+20/01/2019 - Migracao_para_SQLITE_e_Entity_Core
+	Realizei algumas pesquisas e alguns sites falam sobre problemas em utilizar o SQLITE com o EF utilizando Code First. Isso pq o SQLITE não possui todas as funcionalidades de outros SQLS, como DROP COLUMN, por exemplo.
+	Para tentar contornar, utilizei o último processo desse site: https://docs.microsoft.com/en-us/ef/core/get-started/netcore/new-db-sqlite alterando o diretório de trabalho do projeto.
+	Agora o SQLITE informa que a tabela Cheques já existe, e não consegue aplicar a migração inicial criando o banco de dados.
+	Deletei o Banco de dados que existia na pasta do projeto, mas o erro permanece.
+	Parece que o banco de dados é criado em algumas pastas do projeto. Acabei deletando o que estava na pasta E:\Projetos C#\Academia\Academia e consegui recriar o banco. 
+	O lado ruim é que voltou a dar o erro de que a tabela Visitantes não existe quando rodo a aplicação.
+	O problema estava na configuração das pasta de trabalho do projeto, como descrito acima. 
+	A pasta correta de trabalho é onde está o arquivo com o banco de dados: E:\Projetos C#\Academia\Academia
+	Agora está funcionando corretamente.
+	Testei uma operação que utiliza DROP COLUMN e realmente não foi possível realizar a migração. 
+	Isso pode ser um problema no futuro se houver alguma alteração grande no banco de dados e o aplicativo já estiver em funcionamento com o cliente.
+	A solução atual é remover todas as migrações, deletar o banco e criar um novo.
+	Parece que o pacote Microsoft.EntityFrameworkCore.Sqlite.Core já suporta renomeameto de colunas. Preciso pesquisar mais.
+	Uma alternativa seria utilizar o LocalDb do SQl Server Express, que é menor que SQl Server completo, só não aceita acessos remotos. 
+	Vou testar essa opção também, já que o problema inicial que me fez olhar para o SQLITE foi a dificuldade de deploy com o SQL Server.
+	Criei o instalador. Ainda não está instalando o Sqlite junto com a aplicação.
+	Adiocionei o banco de dados e os arquivos do SQLite no projeto com as configurações "conteúdo" e "copiar se for mais novo."
+	Em compilação -> Gerenciamento de Configurações alterei o target do projeto para X64.
+	A aplicação continua não encontrando o dll do SQLite quando instalado.
