@@ -46,3 +46,4 @@
 
 	Voltei para o projeto principal com EF6 e localDb do SQL Server. Nos pré-requisitos do instalador, marquei SQL Server Express 2012 LocalDB. Com isso o programa 
 	está funcionando corretamente quando instalado.
+	Como eu havia alterado o campo value do controle DateTimePicker, ele não ficava mais como a data atual como padrão. Redefir o campo Value nas propriedades do 	controle resolveu o problema.
