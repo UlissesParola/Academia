@@ -29,10 +29,11 @@
 		private void InitializeComponent()
 		{
 			this.pnlVisitantes = new System.Windows.Forms.Panel();
+			this.TopPanel = new System.Windows.Forms.Panel();
+			this.label1 = new System.Windows.Forms.Label();
 			this.lvwVisitantes = new System.Windows.Forms.ListView();
 			this.txtPesquisarVisitantePorNome = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
 			this.btnNovoVisitante = new System.Windows.Forms.Button();
 			this.dtpProximoContatoVisitante = new System.Windows.Forms.DateTimePicker();
 			this.label10 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtNomeVisitante = new System.Windows.Forms.TextBox();
 			this.lblNome = new System.Windows.Forms.Label();
-			this.TopPanel = new System.Windows.Forms.Panel();
 			this.pnlVisitantes.SuspendLayout();
 			this.TopPanel.SuspendLayout();
 			this.SuspendLayout();
@@ -88,6 +88,27 @@
 			this.pnlVisitantes.Size = new System.Drawing.Size(1146, 721);
 			this.pnlVisitantes.TabIndex = 0;
 			// 
+			// TopPanel
+			// 
+			this.TopPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.TopPanel.Controls.Add(this.label1);
+			this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+			this.TopPanel.Location = new System.Drawing.Point(0, 0);
+			this.TopPanel.Name = "TopPanel";
+			this.TopPanel.Size = new System.Drawing.Size(1146, 108);
+			this.TopPanel.TabIndex = 45;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.label1.Font = new System.Drawing.Font("Century Gothic", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(35, 27);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(239, 58);
+			this.label1.TabIndex = 41;
+			this.label1.Text = "Visitantes";
+			// 
 			// lvwVisitantes
 			// 
 			this.lvwVisitantes.AllowColumnReorder = true;
@@ -122,17 +143,6 @@
 			this.label11.TabIndex = 42;
 			this.label11.Text = "Pesquisar:";
 			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.label1.Font = new System.Drawing.Font("Century Gothic", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(35, 27);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(239, 58);
-			this.label1.TabIndex = 41;
-			this.label1.Text = "Visitantes";
-			// 
 			// btnNovoVisitante
 			// 
 			this.btnNovoVisitante.BackColor = System.Drawing.Color.White;
@@ -151,6 +161,7 @@
 			// 
 			// dtpProximoContatoVisitante
 			// 
+			this.dtpProximoContatoVisitante.Checked = false;
 			this.dtpProximoContatoVisitante.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dtpProximoContatoVisitante.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.dtpProximoContatoVisitante.Location = new System.Drawing.Point(850, 398);
@@ -158,7 +169,6 @@
 			this.dtpProximoContatoVisitante.Name = "dtpProximoContatoVisitante";
 			this.dtpProximoContatoVisitante.Size = new System.Drawing.Size(147, 30);
 			this.dtpProximoContatoVisitante.TabIndex = 34;
-			this.dtpProximoContatoVisitante.Value = new System.DateTime(2018, 12, 23, 12, 31, 55, 0);
 			// 
 			// label10
 			// 
@@ -288,6 +298,7 @@
 			// 
 			// dtpVisitante
 			// 
+			this.dtpVisitante.Checked = false;
 			this.dtpVisitante.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dtpVisitante.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.dtpVisitante.Location = new System.Drawing.Point(819, 217);
@@ -295,7 +306,6 @@
 			this.dtpVisitante.Name = "dtpVisitante";
 			this.dtpVisitante.Size = new System.Drawing.Size(147, 30);
 			this.dtpVisitante.TabIndex = 27;
-			this.dtpVisitante.Value = new System.DateTime(2018, 12, 23, 0, 0, 0, 0);
 			// 
 			// label2
 			// 
@@ -325,16 +335,6 @@
 			this.lblNome.Size = new System.Drawing.Size(70, 22);
 			this.lblNome.TabIndex = 24;
 			this.lblNome.Text = "Nome:";
-			// 
-			// TopPanel
-			// 
-			this.TopPanel.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.TopPanel.Controls.Add(this.label1);
-			this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.TopPanel.Location = new System.Drawing.Point(0, 0);
-			this.TopPanel.Name = "TopPanel";
-			this.TopPanel.Size = new System.Drawing.Size(1146, 108);
-			this.TopPanel.TabIndex = 45;
 			// 
 			// UCVisitantes
 			// 
