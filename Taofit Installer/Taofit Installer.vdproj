@@ -15,25 +15,25 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_38D78D31961ABBCDE2F28D594F890734"
-        "OwnerKey" = "8:_AAEDD651EEE443079663D5F26F05ECA8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_38D78D31961ABBCDE2F28D594F890734"
-        "OwnerKey" = "8:_4BECD7BE97B263010EDDB92213BAACDD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_3B34974D3F09416B93386C8655D53F1C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4BECD7BE97B263010EDDB92213BAACDD"
+        "MsmKey" = "8:_63E1CC3906821F17E4E44DD153F165C3"
+        "OwnerKey" = "8:_AAEDD651EEE443079663D5F26F05ECA8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_63E1CC3906821F17E4E44DD153F165C3"
+        "OwnerKey" = "8:_A0F388DA31FD406B5CBB3E2571463FA7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A0F388DA31FD406B5CBB3E2571463FA7"
         "OwnerKey" = "8:_AAEDD651EEE443079663D5F26F05ECA8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,6 +51,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_AE69BF34784D4F9685B9A9CFCAD0D6CD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C543E194C6CC4868A587A64DD890D881"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_AAEDD651EEE443079663D5F26F05ECA8"
         "MsmSig" = "8:_UNDEFINED"
@@ -58,13 +70,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4BECD7BE97B263010EDDB92213BAACDD"
+        "OwnerKey" = "8:_C543E194C6CC4868A587A64DD890D881"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_38D78D31961ABBCDE2F28D594F890734"
+        "OwnerKey" = "8:_A0F388DA31FD406B5CBB3E2571463FA7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_63E1CC3906821F17E4E44DD153F165C3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -135,6 +153,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -142,6 +168,20 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_6A5D43F4CCF6492A911AFB2C3538124E"
+            {
+            "Name" = "8:SQLServer2016-SSEI-Expr.exe"
+            "Condition" = "8:"
+            "Object" = "8:_C543E194C6CC4868A587A64DD890D881"
+            "FileType" = "3:2"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_74488758_F92D_4B21_9329_73B13B8E6147"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
         }
         "DefaultFeature"
         {
@@ -165,14 +205,34 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_38D78D31961ABBCDE2F28D594F890734"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3B34974D3F09416B93386C8655D53F1C"
+            {
+            "SourcePath" = "8:E:\\Assets\\TaoFit\\favicon.ico"
+            "TargetName" = "8:favicon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B07064C43B024B5B901787BAB668F0C7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_63E1CC3906821F17E4E44DD153F165C3"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_38D78D31961ABBCDE2F28D594F890734"
+                    "_63E1CC3906821F17E4E44DD153F165C3"
                     {
                     "Name" = "8:EntityFramework.dll"
                     "Attributes" = "3:512"
@@ -196,34 +256,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3B34974D3F09416B93386C8655D53F1C"
-            {
-            "SourcePath" = "8:E:\\Assets\\TaoFit\\favicon.ico"
-            "TargetName" = "8:favicon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_B07064C43B024B5B901787BAB668F0C7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4BECD7BE97B263010EDDB92213BAACDD"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A0F388DA31FD406B5CBB3E2571463FA7"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_4BECD7BE97B263010EDDB92213BAACDD"
+                    "_A0F388DA31FD406B5CBB3E2571463FA7"
                     {
                     "Name" = "8:EntityFramework.SqlServer.dll"
                     "Attributes" = "3:512"
@@ -276,6 +316,57 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AE69BF34784D4F9685B9A9CFCAD0D6CD"
+            {
+            "SourcePath" = "8:C:\\Users\\uliss\\Downloads\\SqlLocalDB.msi"
+            "TargetName" = "8:SqlLocalDB.msi"
+            "Tag" = "8:"
+            "Folder" = "8:_B07064C43B024B5B901787BAB668F0C7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C543E194C6CC4868A587A64DD890D881"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SQLServer2016-SSEI-Expr, Version=13.1805.0.0, Culture=neutral, PublicKeyToken=57d8c1d10de9dc02, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C543E194C6CC4868A587A64DD890D881"
+                    {
+                    "Name" = "8:SQLServer2016-SSEI-Expr.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:C:\\Users\\uliss\\Downloads\\SQLServer2016-SSEI-Expr.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B07064C43B024B5B901787BAB668F0C7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
